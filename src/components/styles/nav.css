@@ -1,0 +1,75 @@
+.navbarContainer {
+    width: 100%;
+    height: 80px;
+    font-size: 22px;
+    color: white;
+    background: rgb(0, 0, 0, 0.9);
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbarLogo {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+    .navbarLogo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbarTitle {
+        margin: 0 0 0 10px;
+        font-size: 18px;
+    }
+
+.navbarLinks {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .navbarLinks ul {
+        list-style: none;
+        display: flex;
+    }
+
+    .navbarLinks ul li {
+        margin: 5px;
+    }
+
+.navbarLoginSignin {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .navbarLoginSignin ul {
+        list-style: none;
+    }
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: rgb(109, 109, 109);
+}
+
+/* Media Queries */
+
+@media (max-width: 780px) { 
+    .hide{
+        display: none;
+    }
+}
