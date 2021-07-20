@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import '../styles/viewBooks.css';
+import '../styles/bookList.css';
 import CardBook from './CardBook';
 
-export default function ViewBooks() {
+export default function BookList() {
     
     const [bookList, setBookList] = useState([]);
 
