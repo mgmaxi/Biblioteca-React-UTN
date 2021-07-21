@@ -6,8 +6,6 @@ export default function Main () {
 
     return (
         <div className="mainContainer">
-            <div className="boxContainer">
-            </div>
         </div>
     )
 }

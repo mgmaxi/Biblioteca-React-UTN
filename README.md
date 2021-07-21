@@ -39,4 +39,4 @@ Clonar el presente repositorio, ingresar al directorio raíz, ejecutar 'npm inst
 
 ## Previsualización
 
-<img src="public/assets/img/preview.jpg" width="900" height="500">
+<img src="public/assets/img/preview.png" width="900" height="500">

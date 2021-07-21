@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles/nav.css' 
 import logo from '../logo.png';
 
@@ -6,28 +7,29 @@ export default function Nav () {
     return (
         <div>
             <nav className="navbarContainer">
-                    <a href="/" className="navbarLogo">
+                    <Link to="/" className="navbarLogo">
                         <div>
-                            <img src={logo} alt="" />
+                            <img src={logo} alt="logo" />
                         </div>
                         <div className="navbarTitle hide">
                             <p>Where Are My Books?</p>
                         </div>
-                    </a>
+                    </Link>
                     <div className="navbarLinks">
                         <ul>
-                            <li><a href="/">INICIO</a></li>
-                            <li><a href="/">LIBROS</a></li>
-                            <li><a href="/">GÉNEROS</a></li>
+                            <li className="hide"><Link to="/">INICIO</Link></li>
+                            <li><Link to="/libro">LIBROS</Link></li>
+                            <li><Link to="/categoria">CATEGORIAS</Link></li>
+                            <li><Link to="/persona">PERSONAS</Link></li>
                         </ul>
                     </div>
                     <div className="navbarLoginSignin">
                         <ul>
                             <li>
-                                <a aria-current="page" href="/login"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></a>
+                                <Link aria-current="page" to="/login"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></Link>
                             </li>
                             <li>
-                                <a aria-current="page" href="/signin"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></a>
+                                <Link aria-current="page" to="/signup"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></Link>
                             </li>
                         </ul>
                     </div>

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/bookList.css';
 import CardBook from './CardBook';
+import Nav from '../Nav';
+import Footer from '../Footer'
 
 export default function BookList() {
     
@@ -13,8 +15,7 @@ export default function BookList() {
                 const url = 'http://localhost:3000/libro'; 
                 const response = await axios.get(url);
                 if (response.status === 200) {
-                setBookList(response.data)
-                console.log(response.data);
+                    setBookList(response.data)
             }}
             fetchData()
         } catch (error) {
@@ -32,7 +33,9 @@ export default function BookList() {
 
     return (
         <div>
-            {array}
+            <Nav />
+                {array}
+            <Footer />
         </div>
     )
 }
