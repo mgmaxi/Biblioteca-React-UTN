@@ -1,47 +1,63 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
-const Formu = () => {
-
-
-
-    
-   
-
-
-    const [datos, setdatos] = useState({
+function NewBook(props) {
+    const [categorias, setCategorias] = React.useState([]);
+    const [datos, setDatos] = React.useState({
         nombre: '',
         descripcion: '',
-        categoria: '',
-        persona: ''
-    })
+        categoria: ''
+    });
+    const obtenerCategorias = async () => {
+        try {
+            const respuesta = await axios.get('http://localhost:3000/categoria');
+            setCategorias(respuesta.data);
+        } catch (e) {}
+    };
+    React.useEffect(() => {
+        obtenerCategorias();
+    }, []);
 
-    const handleInputChange = (e) => {
+    const handleChangeNombre = e => {
+        const nuevoState = JSON.parse(JSON.stringify(datos));
+        nuevoState.nombre = e.target.value;
+        setDatos(nuevoState);
+    };
 
-        setdatos({
-            ...datos,
-            [e.target.name]: e.target.value
-        });
-    }
+    const handleChangeDescripcion = e => {
+        const nuevoState = JSON.parse(JSON.stringify(datos));
+        nuevoState.descripcion = e.target.value;
+        setDatos(nuevoState);
+    };
 
-    const  enviarFormulario = (e) => {
-        e.preventDefault();
-        console.log(datos.nombre + ' ' + datos.descripcion + ' ' + datos.categoria + ' ' + datos.persona);        
-        const respuesta = axios.post('http://localhost:3000/libro',datos);
-    }
+    const handleChangeCategoria = e => {
+        const nuevoState = JSON.parse(JSON.stringify(datos));
+        nuevoState.categoria = e.target.value;
+        setDatos(nuevoState);
+    };
+    const enviarFormulario = async () => {
+        await axios.post('http://localhost:3000/libro', datos);
+    };
 
     return (
 
         <div>
-            <h1>Formulario</h1>
+            <h1>Nuevo libro</h1>
             <form onSubmit={enviarFormulario}>
-                <input onChange={handleInputChange} placeholder="Nombre" name="nombre" type="text"></input>
+                <label htmlFor="nombre">Título</label>
+                <input onChange={handleChangeNombre} placeholder="Título del libro" name="nombre" type="text" />
                 <br />
-                <input onChange={handleInputChange} placeholder="Descripción" name="descripcion" type="text"></input>
+                <label htmlFor="descripcion">Descripción</label>
+                <input onChange={handleChangeDescripcion} placeholder="Descripción" name="descripcion" type="text"/>
                 <br />
-                <input onChange={handleInputChange} placeholder="Categoría" name="categoria" type="text"></input>
-                <br />
-                <input onChange={handleInputChange} placeholder="Persona" name="persona" type="text"></input>
+                <select name="categoria" onChange={handleChangeCategoria}>
+                <option value="">Seleccione un género</option>
+                {categorias.map(unaCategoria => (
+                    <option value={unaCategoria.id}>
+                        {unaCategoria.nombre}
+                    </option>
+                    ))}
+                </select>
                 <br />
                 <button className="btn btn-primary" name="send" type="submit">Enviar</button>
             </form>
@@ -52,5 +68,4 @@ const Formu = () => {
 
 
 
-
-export default Formu;
+export default NewBook;
