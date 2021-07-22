@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import '../styles/bookList.css';
+/* Components */
 import CardBook from './CardBook';
 import Nav from '../Nav';
 import Footer from '../Footer'
+/* Styles */
+import '../styles/main.css'
 
 export default function BookList() {
     
@@ -34,7 +36,11 @@ export default function BookList() {
     return (
         <div>
             <Nav />
-                {array}
+            <div className="mainContainer">
+                <div className="boxContainer">
+                    {array}
+                </div>
+            </div>
             <Footer />
         </div>
     )

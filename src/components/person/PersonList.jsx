@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import '../styles/main.css'
 import '../styles/PersonList.css';
 import CardPerson from './CardPerson';
 import Nav from '../Nav';
@@ -34,7 +35,11 @@ export default function PersonList() {
     return (
         <div>
             <Nav />
-                {array}
+            <div className="mainContainer">
+                <div className="boxContainer">
+                    {array}
+                </div>
+            </div>
             <Footer />
         </div>
     )

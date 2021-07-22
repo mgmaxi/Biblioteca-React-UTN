@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/libro/categoria/:id" component={BookByCategory} /> {/* Muestra todos los libros de un género */}
 
         <Route exact path="/persona" component={PersonList} />  {/* Muestra todas las personas */}
-       {/* <Route exact path="/persona/:id" component={PersonaByID} /> */} {/* Muestra una persona específica */}*/
+       {/* <Route exact path="/persona/:id" component={PersonaByID} /> */} {/* Muestra una persona específica */}
       </Router>
     </div>
   );
