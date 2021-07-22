@@ -26,7 +26,7 @@ export default function Nav () {
                     <div className="navbarLoginSignin">
                         <ul>
                             <li>
-                                <Link aria-current="page" to="/login"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></Link>
+                                <Link aria-current="page" to="./login.jsx"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></Link>
                             </li>
                             <li>
                                 <Link aria-current="page" to="/signup"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></Link>
