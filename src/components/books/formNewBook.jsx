@@ -6,8 +6,8 @@ function NewBook(props) {
     const [datos, setDatos] = React.useState({
         nombre: '',
         descripcion: '',
-        categoria: ''
-    });
+        categoriaid: ''
+            });
     const obtenerCategorias = async () => {
         try {
             const respuesta = await axios.get('http://localhost:3000/categoria');
@@ -32,11 +32,11 @@ function NewBook(props) {
 
     const handleChangeCategoria = e => {
         const nuevoState = JSON.parse(JSON.stringify(datos));
-        nuevoState.categoria = e.target.value;
+        nuevoState.categoriaid = e.target.value;
         setDatos(nuevoState);
     };
     const enviarFormulario = async () => {
-        await axios.post('http://localhost:3000/libro', datos);
+        await axios.post('http://localhost:3000/libro', datos)
     };
 
     return (
@@ -45,15 +45,15 @@ function NewBook(props) {
             <h1>Nuevo libro</h1>
             <form onSubmit={enviarFormulario}>
                 <label htmlFor="nombre">Título</label>
-                <input onChange={handleChangeNombre} placeholder="Título del libro" name="nombre" type="text" />
+                <input onChange={handleChangeNombre} name="nombre" id="nombre" type="text" />
                 <br />
                 <label htmlFor="descripcion">Descripción</label>
-                <input onChange={handleChangeDescripcion} placeholder="Descripción" name="descripcion" type="text"/>
+                <input onChange={handleChangeDescripcion} name="descripcion" id="descripcion" type="text"/>
                 <br />
                 <select name="categoria" onChange={handleChangeCategoria}>
-                <option value="">Seleccione un género</option>
+                <option>Seleccione un género</option>
                 {categorias.map(unaCategoria => (
-                    <option value={unaCategoria.id}>
+                    <option value={unaCategoria.ID}>
                         {unaCategoria.nombre}
                     </option>
                     ))}
