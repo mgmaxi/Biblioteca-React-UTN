@@ -6,6 +6,7 @@ import BookList from './components/books/BookList';
 import BookByID from './components/books/BookByID';
 import BookByCategory from './components/books/BookByCategory';
 import PersonList from './components/person/PersonList';
+import CategoryList from './components/categories/CategoryList';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Router>
         <Route exact path="/" component={Home} /> 
 
-        {/* <Route exact path="/categoria" component={CategoriaListado} /> */} {/* Muestra todas las categorías */}
+        <Route exact path="/categoria" component={CategoryList} />  {/* Muestra todas las categorías */}
         {/* <Route exact path="/categoria/id" component={CategoriaPorID} />*/}  {/* Muestra una categoría específica */ }
 
         <Route exact path="/libro" component={BookList} /> {/* Muestra todos los libros */}

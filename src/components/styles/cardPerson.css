@@ -1,55 +1,71 @@
+/** @format */
+
 .container {
-    padding: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .cardPerson {
-    color: rgb(241, 236, 236);
-    width: 1280px;
-    height: 500px;
-    background: url(../person.png) no-repeat center;
-    display: flex;
-    justify-content: left;
-    align-items: left;
+  color: rgb(241, 236, 236);
+  width: 1280px;
+  height: 500px;
+  background: url(../person.png) no-repeat center;
+  display: flex;
+  justify-content: left;
+  align-items: left;
 }
-
 
 .namePerson {
-        margin-left: 200px;
-        margin-top: 100px;
-        font-size: 22px;
-        
-        text-align: left;
+  margin-left: 200px;
+  margin-top: 100px;
+  font-size: 22px;
+
+  text-align: left;
 }
 
-.surnamePerson{
-    margin-left: 200px;
-        margin-top: 10px;
-        font-size: 22px;
-        
-        text-align: left;
+.surnamePerson {
+  margin-left: 200px;
+  margin-top: 10px;
+  font-size: 22px;
+
+  text-align: left;
 }
 
-.emailPerson{
-    margin-left: 200px;
-        margin-top: 10px;
-        font-size: 22px;
-        
-        text-align: left;
+.emailPerson {
+  margin-left: 200px;
+  margin-top: 10px;
+  font-size: 22px;
+
+  text-align: left;
 }
-.aliasPerson{
-    margin-left: 200px;
-        margin-top: 10px;
-        font-size: 22px;
-        
-        text-align: left;
+.aliasPerson {
+  margin-left: 200px;
+  margin-top: 10px;
+  font-size: 22px;
+
+  text-align: left;
 }
-.personaID{
-    margin-left: 1000px;
-        margin-top: -100px;
-        font-size: 22px;
-        
-        text-align: left;
+.personID {
+  margin-left: 1000px;
+  margin-top: -100px;
+  font-size: 22px;
+
+  text-align: left;
 }
+
+.deleteButton {
+    padding-left: 5px;
+    float: right;
+  }
+.modifyButton {
+ 
+  float: right;
+}
+
+
+.groupButton {
+    margin-top: px;
+}
+
