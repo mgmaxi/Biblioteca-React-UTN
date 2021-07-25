@@ -10,11 +10,11 @@ export default function CardCategory({
     <div className="container">
       <div
         key={categoria.id}
-        className="cardPerson"
+        className="cardCategory"
       >
         <div>
           <h2 className="nameCategory">
-            Nombre: {categoria.nombre}
+            {categoria.nombre}
           </h2>
           <h2 className="categoryID">
             ID: {categoria.ID}
