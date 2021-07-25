@@ -38,7 +38,7 @@ export default function CardBook ({ libro }) {
 
     return (
             <div key={libro.id}>
-                <Link to={'/libro/' + libro.id}>
+                <Link to={'/libro/view/' + libro.id}>
                     <div className="card">
                         <div className="cardBackGround">
                             <h2 className="tittleBook">{libro.nombre}</h2>

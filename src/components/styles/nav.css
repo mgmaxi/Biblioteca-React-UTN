@@ -66,6 +66,44 @@ a:hover {
     color: rgb(109, 109, 109);
 }
 
+/* DROPDOWN */
+/* Dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgb(0, 0, 0, 0.9);
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links of dropdown */
+.dropdown-content a {
+  float: none;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  color: rgb(109, 109, 109);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+} 
+
 /* Media Queries */
 
 @media (max-width: 780px) { 

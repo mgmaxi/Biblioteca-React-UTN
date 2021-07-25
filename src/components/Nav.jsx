@@ -18,9 +18,27 @@ export default function Nav () {
                     <div className="navbarLinks">
                         <ul>
                             <li className="hide"><Link to="/">INICIO</Link></li>
-                            <li><Link to="/libro">LIBROS</Link></li>
-                            <li><Link to="/categoria">CATEGORIAS</Link></li>
-                            <li><Link to="/persona">PERSONAS</Link></li>
+                            <li class="dropdown">
+                                <Link to="/libro" class="dropbtn">LIBROS</Link>
+                                <div class="dropdown-content">
+                                    <Link to="/libro">Todos los libros</Link>
+                                    <Link to="/libro/new">Agregar un libro</Link>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <Link to="/categoria" class="dropbtn">CATEGORIAS</Link>
+                                <div class="dropdown-content">
+                                    <Link to="/categoria">Todas las categorias</Link>
+                                    <Link to="/categoria/new">Agregar una categoria</Link>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <Link to="/persona" class="dropbtn">PERSONAS</Link>
+                                <div class="dropdown-content">
+                                    <Link to="/persona">Todas las personas</Link>
+                                    <Link to="/persona/new">Agregar una persona</Link>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div className="navbarLoginSignin">
