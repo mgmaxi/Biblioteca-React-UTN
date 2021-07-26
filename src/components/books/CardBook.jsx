@@ -29,10 +29,10 @@ export default function CardBook ({ libro }) {
     const namePerson = person.map((persona)=> persona.nombre)
 
     return (
-            <div key={libro.id}>
+            <div className="containerBookList"key={libro.id}>
                 <li className="listBooks">
                     <Link to={'/libro/view/' + libro.id}>{libro.nombre}</Link>
-                    <span className="owner">Prestado a: {namePerson}</span>
+                    <span>Prestado a: {namePerson}</span>
                     <div className="btnGroup">
                         <Edit /><Return /><Delete />
                     </div>

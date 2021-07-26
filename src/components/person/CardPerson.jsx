@@ -1,5 +1,6 @@
 /** @format */
-
+import Edit from '../others/btn/btnEdit';
+import Delete from '../others/btn/btnDelete';
 import React from "react";
 import "../styles/cardPerson.css";
 
@@ -15,40 +16,33 @@ export default function CardPerson({
       >
         <div>
           <h2 className="namePerson">
-            Nombre: {persona.nombre}
+            Nombre: 
           </h2>
-          <h2 className="surnamePerson">
-            Apellido: {persona.apellido}
+          <h3 className="dataSpace">{persona.nombre}</h3>
+          <h2 className="surnamePerson" >
+            Apellido: 
           </h2>
+          <h3 className="dataSpace">{persona.apellido}</h3>
           <h2 className="emailPerson">
-            Email: {persona.email}
+            Email: 
           </h2>
+          <h3 className="dataSpace">{persona.email}</h3>
           <h2 className="aliasPerson">
-            Alias: {persona.alias}
+            Alias: 
           </h2>
+          <h3 className="dataSpace">{persona.alias}</h3>
           <h2 className="personID">
-            ID: {persona.ID}
+            ID {persona.ID}
           </h2>
+          
+          <div className="btnGroup">
+                        <Edit /><Delete />
+                    </div>
           {/*<h2 className="bookBorrowed">
             Libros prestados: {libro.personaid}
   </h2>*/}
 
-          <div className="buttonGroup">
-            <button
-              onClick={persona.ID}
-              className="modifyButton"
-              type="button"
-            >
-              Modificar
-            </button>
-            <button
-              onClick={persona.ID}
-              className="deleteButton"
-              type="button"
-            >
-              Eliminar
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>

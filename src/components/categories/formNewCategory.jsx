@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
-import "../styles/newForm.css";
+import "../styles/newFormCategory.css";
 import "../styles/main.css";
 
 function NewCategory(props) {
@@ -30,7 +30,7 @@ function NewCategory(props) {
       <Nav />
       <div className="mainContainer">
         <form
-          className="formContainer"
+          className="formContainerCategory"
           onSubmit={enviarFormulario}
         >
           <h1 className="formName">
@@ -42,6 +42,7 @@ function NewCategory(props) {
             name="nombre"
             id="nombre"
             type="text"
+            className="smallInputTextCategory"
           />
           <br />
           <button

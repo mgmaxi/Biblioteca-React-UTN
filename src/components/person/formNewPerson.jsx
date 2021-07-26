@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
-import "../styles/newForm.css";
+import "../styles/newFormPerson.css";
 import "../styles/main.css";
 
 function NewPerson(props) {
@@ -56,11 +56,11 @@ function NewPerson(props) {
       <Nav />
       <div className="mainContainer">
         <form
-          className="formContainer"
+          className="formContainerPerson"
           onSubmit={enviarFormulario}
         >
           <h1 className="formName">
-            Nuevo Persona
+            Nueva Persona
           </h1>
           <label htmlFor="nombre">Nombre</label>
           <input
@@ -68,6 +68,7 @@ function NewPerson(props) {
             name="nombre"
             id="nombre"
             type="text"
+            className="smallInputTextPerson"
           />
           <br />
           <label htmlFor="apellido">
@@ -78,6 +79,7 @@ function NewPerson(props) {
             name="apellido"
             id="apellido"
             type="text"
+            className="smallInputTextPerson"
           />
           <br />
           <label htmlFor="email">Email</label>
@@ -86,6 +88,7 @@ function NewPerson(props) {
             name="email"
             id="email"
             type="text"
+            className="smallInputTextPerson"
           />
           <br />
           <label htmlFor="alias">Alias</label>
@@ -94,6 +97,7 @@ function NewPerson(props) {
             name="alias"
             id="alias"
             type="text"
+            className="smallInputTextPerson"
           />
           <br />
 

@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
-import "../styles/newForm.css";
+import "../styles/newFormBook.css";
 import "../styles/main.css";
 
 function NewBook(props) {
@@ -62,32 +62,34 @@ function NewBook(props) {
       <Nav />
       <div className="mainContainer">
         <form
-          className="formContainer"
+          className="formContainerBook"
           onSubmit={enviarFormulario}
         >
           <h1 className="formName">
             Nuevo libro
           </h1>
-          <label htmlFor="nombre">Título</label>
+          <label htmlFor="nombre">Titulo</label>
           <input
             onChange={handleChangeNombre}
             name="nombre"
             id="nombre"
             type="text"
+            className="smallInputTextBook"
           />
           <br />
           <label htmlFor="descripcion">
-            Descripción
+            Descripcion
           </label>
           <input
             onChange={handleChangeDescripcion}
             name="descripcion"
             id="descripcion"
             type="text"
-            className="bigInputText"
+            className="bigInputTextBook"
+            
           />
           <br />
-          <select
+          <select class="btn btn-danger dropdown-toggle"
             name="categoria"
             onChange={handleChangeCategoria}
           >
