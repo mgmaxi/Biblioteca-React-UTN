@@ -1,40 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/nav.css' 
-import logo from '../logo.png';
+import Logo from './others/logo/logo';
 
 export default function Nav () {
     return (
         <div>
             <nav className="navbarContainer">
-                    <Link to="/" className="navbarLogo">
-                        <div>
-                            <img src={logo} alt="logo" />
-                        </div>
-                        <div className="navbarTitle hide">
-                            <p>Where Are My Books?</p>
-                        </div>
-                    </Link>
+                    <div className="navbarLogoContainer">
+                        <Logo url="/" subTitle="Where Are My Books?" />
+                    </div>
                     <div className="navbarLinks">
                         <ul>
                             <li className="hide"><Link to="/">INICIO</Link></li>
-                            <li class="dropdown">
-                                <Link to="/libro" class="dropbtn">LIBROS</Link>
-                                <div class="dropdown-content">
+                            <li className="dropdown">
+                                <Link to="/libro" className="dropbtn">LIBROS</Link>
+                                <div className="dropdown-content">
                                     <Link to="/libro">Todos los libros</Link>
                                     <Link to="/libro/new">Agregar un libro</Link>
                                 </div>
                             </li>
-                            <li class="dropdown">
-                                <Link to="/categoria" class="dropbtn">CATEGORIAS</Link>
-                                <div class="dropdown-content">
+                            <li className="dropdown">
+                                <Link to="/categoria" className="dropbtn">CATEGORIAS</Link>
+                                <div className="dropdown-content">
                                     <Link to="/categoria">Todas las categorias</Link>
                                     <Link to="/categoria/new">Agregar una categoria</Link>
                                 </div>
                             </li>
-                            <li class="dropdown">
-                                <Link to="/persona" class="dropbtn">PERSONAS</Link>
-                                <div class="dropdown-content">
+                            <li className="dropdown">
+                                <Link to="/persona" className="dropbtn">PERSONAS</Link>
+                                <div className="dropdown-content">
                                     <Link to="/persona">Todas las personas</Link>
                                     <Link to="/persona/new">Agregar una persona</Link>
                                 </div>

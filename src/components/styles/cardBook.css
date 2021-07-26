@@ -1,3 +1,18 @@
+.listBooks {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px 0 0 0;
+}
+
+.btnGroup {
+    margin: 5px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+}
+
+
 .card {
     margin: 5px;
     color: white;
@@ -46,9 +61,8 @@
         font-size: 12px;
     }
 
-    .btn {
+    /* .btn {
         cursor: pointer;
-        margin-top: 1rem;
         padding: 0.75rem 1rem;
         font-size: 0.65rem;
         font-weight: bold;
@@ -60,7 +74,7 @@
     }
     .btn:hover {
         background-color: #0d0d0d;
-    }
+    } */
 
     .tittleBook {
         font-size: 22px;
