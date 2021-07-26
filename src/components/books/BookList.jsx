@@ -3,8 +3,10 @@ import React, {useState, useEffect} from 'react';
 import Nav from '../Nav';
 import Footer from '../Footer';
 import CardBook from './CardBook';
+import Logo from '../others/logo/logo';
 /* Styles */
 import '../styles/main.css';
+import '../styles/bookView.css'
 /* Services */
 import { getBooks } from '../../services/allServices.jsx';
 
@@ -31,8 +33,11 @@ export default function BookList() {
         <>
             <Nav />
             <div className="mainContainer">
-                <div className="boxContainer">
-                    {bookListArray}
+                <div className="bookContainer">
+                    <Logo title="LISTADO DE LIBROS" url="/libro" />
+                    <ul>
+                        {bookListArray}
+                    </ul>
                 </div>
             </div>
             <Footer />

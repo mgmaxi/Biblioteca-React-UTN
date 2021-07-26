@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+/* Components */
+import Edit from '../others/btn/btnEdit';
+import Return from '../others/btn/btnReturn';
+import Delete from '../others/btn/btnDelete';
+import Logo from '../others/logo/logo';
 /* Styles */
 import '../styles/cardBook.css';
 /* Services */
@@ -38,18 +42,18 @@ export default function CardBookByID ({ libro }) {
 
     return (
             <div key={libro.id} className="bookContainer">
-                <h1>{libro.nombre}</h1>
+                <h1 className="tittleBook">{libro.nombre}</h1>
                 <h2>Género: {nameCategory}</h2>
                 <p>{libro.descripcion}</p> 
                 <div className="availability">
                     <span className="available">DISPONIBLE</span> - <span className="notAvailable">PRESTADO</span> <span className="owner">Prestado a: {namePerson}</span>
                 </div>
                 <ul className="options">
-                    <li><i className="fa fa-pencil btn" aria-hidden="true"></i><p>Modificar</p></li>
-                    <li><i className="fa fa-share btn" aria-hidden="true"></i><p>Devolver</p></li>
-                    <li><i className="fa fa-trash btn" aria-hidden="true"></i><p>Eliminar</p></li>
+                    <li><Edit /></li>
+                    <li><Return /></li>
+                    <li><Delete /></li>
                 </ul>
-                <Link to="/libro" className="linkBooks">Volver a Libros</Link>
+                <Logo subTitle="Volver a Libros" url="/libro" />
             </div>
     )
 }

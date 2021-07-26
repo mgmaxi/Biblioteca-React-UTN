@@ -1,0 +1,17 @@
+.logoContainer {
+    width: auto;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+    .logoContainer img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logoTitle {
+        margin: 0 0 0 10px;
+        font-size: 18px;
+    }

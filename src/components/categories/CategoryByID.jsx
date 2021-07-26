@@ -40,7 +40,7 @@ export default function CategoryByID () {
 
     const bookByCategoryArray = viewBookByCategory.map(libro=>(
         <div key={libro.id}>
-            <li><Link to={'/libro/' + libro.id}>{libro.nombre}</Link></li>
+            <li><Link to={'/libro/view/' + libro.id}>{libro.nombre}</Link></li>
         </div>
     ))
 
