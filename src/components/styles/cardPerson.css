@@ -4,7 +4,7 @@
   padding: 25px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .cardPerson {
@@ -12,16 +12,23 @@
   color: rgb(241, 236, 236);
   width: 330px;
   height: 450px;
-  background-color: rgba(19, 47, 139, 0.8);; 
+  max-width: 330px;
+  max-height: 450px;
+  min-width: 330px;
+  background-color: rgba(22, 46, 117, 0.897);; 
   display: flex;
   justify-content: left;
-  align-items: left;
+  
+  box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.30);
+    -webkit-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.30);
+    -moz-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.30);
 }
 
 .namePerson {
+  
   margin-left: 50px;
   margin-top: 50px;
-  font-size: 22px;
+  font-size: 16px;
   color: grey;
   text-align: left;
 }
@@ -29,7 +36,7 @@
 .surnamePerson {
   margin-left: 50px;
   margin-top: 10px;
-  font-size: 22px;
+  font-size: 16px;
   color: grey;
   text-align: left;
 }
@@ -37,7 +44,7 @@
 .emailPerson {
   margin-left: 50px;
   margin-top: 10px;
-  font-size: 22px;
+  font-size: 16px;
   color: grey;
 
   text-align: left;
@@ -45,36 +52,33 @@
 .aliasPerson {
   margin-left: 50px;
   margin-top: 10px;
-  font-size: 22px;
+  font-size: 16px;
   color: grey;
   text-align: left;
 }
 .personID {
   margin-left: 50px;
   color: rgb(255, 255, 255);
-  font-size: 22px;
+  font-size: 16px;
   margin-top: 20px;
   text-align: left;
 }
 
 .dataSpace{
   text-transform: lowercase;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-left: 50px;
+  padding-right: 0px;
+  text-align: left;
 }
 
-.deleteButton {
-    padding-left: 5px;
-    
-  }
-.modifyButton {
-margin-left: 50px;
-}
-.btnGroup {
-  margin: 5px 35px 4px 80px;
+
+.btnGroupPerson {
+  margin-top: 50px;
+  margin-left: 100px;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: right;
+  align-items: center;
 
 }
 

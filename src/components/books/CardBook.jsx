@@ -29,14 +29,16 @@ export default function CardBook ({ libro }) {
     const namePerson = person.map((persona)=> persona.nombre)
 
     return (
-            <div className="containerBookList"key={libro.id}>
-                <li className="listBooks">
-                    <Link to={'/libro/view/' + libro.id}>{libro.nombre}</Link>
-                    <span>Prestado a: {namePerson}</span>
-                    <div className="btnGroup">
+            <div className="container"key={libro.id}>
+                <div className="cardBook">
+                <div className="cardBookFlex">
+                    <Link to={'/libro/view/' + libro.id} className="titleBook">{libro.nombre}</Link>
+                    <span className="borrowedPerson">Prestado a: {namePerson}</span>
+                    <div className="btnGroupBook">
                         <Edit /><Return /><Delete />
                     </div>
-                </li>
+                </div>
+                </div>
             </div>
     )
 }

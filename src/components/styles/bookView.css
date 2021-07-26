@@ -1,25 +1,5 @@
 /* BookByID Styles */
 
-.bookContainer {
-    margin: 25px;
-    padding: 25px;
-    position: relative;
-    width: 400px;
-    min-width: 400px;
-    max-width: 900px;
-    height: auto;
-    min-height: 300px;
-    color: white;
-    background-color: rgb(0, 0, 0, 0.8);
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: center;
-    box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-}
 
     .bookContainer h1 {
         font-size: 2rem;
@@ -42,7 +22,7 @@
     .listBooksByCategory {
         margin: 10px 0 0 20px;
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         align-self: flex-start;
     }
 

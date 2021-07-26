@@ -33,11 +33,11 @@ export default function BookList() {
         <>
             <Nav />
             <div className="mainContainer">
-                <div className="bookContainer">
+                <div>
                     <Logo title="LISTADO DE LIBROS" url="/libro" />
-                    <ul>
+                    <div className="cardBookFlex">
                         {bookListArray}
-                    </ul>
+                    </div>
                 </div>
             </div>
             <Footer />
