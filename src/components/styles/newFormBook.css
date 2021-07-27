@@ -15,7 +15,7 @@
   height: auto;
   min-height: 300px;
   color: white;
-  background-color: rgba(179, 46, 46, 0.8);
+  background-color: rgb(0, 0, 0, 0.8);
   border-radius: 10px;
   display: flex;
   flex-flow: column wrap;
@@ -40,14 +40,14 @@
   padding-bottom: 50px;
   text-align: start;
   border-radius: 8px;
-  border-color: rgb(230, 34, 34);
+  border-color: rgb(12, 8, 8);
 }
 
 .smallInputTextBook{
   font-size: 25px;
   margin-top: 5px;
   border-radius: 5px;
-  border-color: rgb(230, 34, 34);
+  border-color: rgb(15, 8, 8);
   
 }
 
