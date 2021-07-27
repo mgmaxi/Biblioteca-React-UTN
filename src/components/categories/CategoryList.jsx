@@ -6,7 +6,7 @@ import React, {
   } from "react";
   
   /* Services */
-  import { getCategory } from "../../services/categoryServices";
+  import { getCategory } from "../../services/allServices";
   /* Styles */
   import "../styles/main.css";
   import "../styles/CategoryList.css";
@@ -14,17 +14,22 @@ import React, {
   import CardCategory from "./CardCategory"
   import Nav from "../Nav";
   import Footer from "../Footer";
+  import Error from '../others/error/Error';
   
   export default function CategoryList() {
     const [categorylist, setCategoryList] = useState(
       []
     );
+    const [error, setError] = useState([]); 
+
   
     const fetchData = async () => {
       const response = await getCategory();
       if (response.status === 200) {
         setCategoryList(response.data);
-      }
+      } else {
+        setError(response)
+    }
     };
     useEffect(() => {
       fetchData();
@@ -49,6 +54,7 @@ import React, {
         <div className="mainContainer">
           <div className="boxContainer">
             {categoryListArray}
+            <Error message={error} />
           </div>
         </div>
         <Footer />

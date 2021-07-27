@@ -4,6 +4,7 @@ import Nav from '../Nav';
 import Footer from '../Footer';
 import CardBook from './CardBook';
 import Logo from '../others/logo/logo';
+import Error from '../others/error/Error';
 /* Styles */
 import '../styles/main.css';
 import '../styles/bookView.css'
@@ -13,6 +14,7 @@ import { getBooks } from '../../services/allServices.jsx';
 export default function BookList() {
     
     const [bookList, setBookList] = useState([]);
+    const [error, setError] = useState([]); 
 
     /* Consumo de la tabla Libro */
 
@@ -20,6 +22,8 @@ export default function BookList() {
         const response = await getBooks();
         if (response.status === 200) {
             setBookList(response.data);
+        } else {
+            setError(response)
         }
     }
 
@@ -33,11 +37,12 @@ export default function BookList() {
         <>
             <Nav />
             <div className="mainContainer">
-                <div>
+                <div className="bookContainer">
                     <Logo title="LISTADO DE LIBROS" url="/libro" />
-                    <div className="cardBookFlex">
+                    <ul>
                         {bookListArray}
-                    </div>
+                    </ul>
+                    <Error message={error} />
                 </div>
             </div>
             <Footer />

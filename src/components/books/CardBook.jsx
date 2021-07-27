@@ -4,21 +4,25 @@ import { Link } from 'react-router-dom';
 import Edit from '../others/btn/btnEdit';
 import Return from '../others/btn/btnReturn';
 import Delete from '../others/btn/btnDelete';
+import Error from '../others/error/Error';
 /* Styles */
 import '../styles/cardBook.css';
 /* Services */
-import { getPerson } from '../../services/allServices.jsx';
+import { getPersonByID } from '../../services/allServices.jsx';
 
 export default function CardBook ({ libro }) {
 
     const [person, setPerson] = useState([]);
+    const [error, setError] = useState([]); 
 
     /* Consumo de la tabla Persona */
 
     const fetchPerson= async () => {
-        const response = await getPerson(libro.personaid);
+        const response = await getPersonByID(libro.personaid);
         if (response.status === 200) {
             setPerson(response.data);
+        } else {
+            setError(response);
         }
     }
 
@@ -29,16 +33,16 @@ export default function CardBook ({ libro }) {
     const namePerson = person.map((persona)=> persona.nombre)
 
     return (
-            <div className="container"key={libro.id}>
-                <div className="cardBook">
-                <div className="cardBookFlex">
-                    <Link to={'/libro/view/' + libro.id} className="titleBook">{libro.nombre}</Link>
-                    <span className="borrowedPerson">Prestado a: {namePerson}</span>
-                    <div className="btnGroupBook">
+            <div key={libro.id}>
+                <li className="listBooks">
+                    <Link to={'/libro/view/' + libro.id}>{libro.nombre}</Link>
+                    <span className="owner">Prestado a: {namePerson}</span>
+                    <Error message={error} />
+                    <div className="btnGroup">
                         <Edit /><Return /><Delete />
                     </div>
-                </div>
-                </div>
+                </li>
+                <hr />
             </div>
     )
 }

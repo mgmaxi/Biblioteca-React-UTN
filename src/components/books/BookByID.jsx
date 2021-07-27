@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Nav from '../Nav';
 import Footer from '../Footer'
 import CardBookByID from './CardBookByID'
+import Error from '../others/error/Error';
 /* Styles */
 import '../styles/main.css'
 import '../styles/bookView.css'
@@ -14,6 +15,7 @@ export default function BookByID () {
 
     const params = useParams();
     const [viewBook, setViewBook] = useState([]);
+    const [error, setError] = useState([]); 
 
     /* Consumo de la tabla Libro (por ID) */
 
@@ -21,6 +23,8 @@ export default function BookByID () {
         const response = await getBooksByID(params.id);
         if (response.status === 200) {
             setViewBook(response.data);
+        } else {
+            setError(response)
         }
     }
 
@@ -35,6 +39,7 @@ export default function BookByID () {
             <Nav />
             <div className="mainContainer">
                 {bookArray}
+                <Error message={error} />
             </div>
             <Footer />
         </>
