@@ -77,6 +77,18 @@ export const getPerson = async () => {
     }
 }
 
+/* Obtiene todos los libros de una persona a través de su ID */
+
+export const getBooksByPerson = async (id = 0) => {
+    try {
+        const response = await axios.get(url + "/libro/persona/" + id);
+        return (response);
+    } catch(error) {
+        console.log(error.response);
+        return [error.response.data.Mensaje];
+    }
+}
+
 /* Obtiene la persona a través de su ID */
 
 export const getPersonByID = async (id = 0) => {

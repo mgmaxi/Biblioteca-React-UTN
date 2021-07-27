@@ -1,6 +1,7 @@
 /** @format */
 import Edit from "../others/btn/btnEdit";
 import Delete from "../others/btn/btnDelete";
+import Book from '../others/btn/btnBook';
 import React from "react";
 import "../styles/cardPerson.css";
 
@@ -38,6 +39,7 @@ export default function CardPerson({
           </h2>
 
           <div className="btnGroupPerson">
+            <Book subTitle="Libros que posee" url={'/persona/view/' + persona.ID} />
             <Edit />
             <Delete />
           </div>

@@ -9,6 +9,7 @@ import CategoryList from './components/categories/CategoryList';
 import CategoryByID from './components/categories/CategoryByID';
 import formNewCategory from './components/categories/formNewCategory';
 import PersonList from './components/person/PersonList';
+import PersonByID from './components/person/PersonByID';
 import formNewPerson from './components/person/formNewPerson';
 
 function App() {
@@ -28,8 +29,8 @@ function App() {
         {/*<Route exact path="/categoria/modify" component={} /> */}
 
         <Route exact path="/persona" component={PersonList} />  {/* Muestra todas las personas */}
-       {/* <Route exact path="/persona/view/:id" component={PersonaByID} /> */} {/* Muestra una persona específica */}
-       <Route exact path="/persona/new" component={formNewPerson} />  {/* Agrega una persona */ }
+        <Route exact path="/persona/view/:id" component={PersonByID} />  {/* Muestra una persona específica */}
+        <Route exact path="/persona/new" component={formNewPerson} />  {/* Agrega una persona */ }
        {/*<Route exact path="/persona/modify" component={}/> */}
 
       </Router>
