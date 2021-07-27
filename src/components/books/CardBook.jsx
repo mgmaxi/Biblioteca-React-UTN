@@ -5,6 +5,7 @@ import Edit from '../others/btn/btnEdit';
 import Return from '../others/btn/btnReturn';
 import Delete from '../others/btn/btnDelete';
 import Error from '../others/error/Error';
+import Book from '../others/btn/btnBook';
 /* Styles */
 import '../styles/cardBook.css';
 /* Services */
@@ -39,7 +40,7 @@ export default function CardBook ({ libro }) {
                     <span className="owner">Prestado a: {namePerson}</span>
                     <Error message={error} />
                     <div className="btnGroup">
-                        <Edit /><Return /><Delete />
+                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return /><Delete />
                     </div>
                 </li>
                 <hr />

@@ -63,7 +63,7 @@ export default function CategoryByID () {
                         {bookByCategoryArray}
                     </ul>
                     <Error message={error} />
-                    <Logo subTitle="Volver a Libros" url="/categoria" />
+                    <Logo subTitle="Volver a Categorias" url="/categoria" />
                 </div>
             </div>
             <Footer />
