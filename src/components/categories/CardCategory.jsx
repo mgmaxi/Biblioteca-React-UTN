@@ -1,6 +1,7 @@
 /** @format */
 import Edit from '../others/btn/btnEdit';
 import Delete from '../others/btn/btnDelete';
+import Book from '../others/btn/btnBook';
 import React from "react";
 import "../styles/cardCategory.css";
 
@@ -22,7 +23,7 @@ export default function CardCategory({
           </h2>
 
           <div className="btnGroupCategory">
-                        <Edit /><Delete />
+                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit /><Delete /> 
                     </div>
           </div>
         </div>
