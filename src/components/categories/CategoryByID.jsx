@@ -57,7 +57,7 @@ export default function CategoryByID () {
         <>
             <Nav />
             <div className="mainContainer">
-                <div className="bookContainer">
+                <div className="categoryContainer">
                     <h1>Libros en la categoria <span className="lowercase">{nameCategory}</span>:</h1>
                     <ul className="listBooksByCategory">
                         {bookByCategoryArray}
