@@ -1,61 +1,10 @@
-/** @format */
-
-import React from "react";
+/*
+import React, { useState,useRef,useEffect } from "react";
 import axios from "axios";
-import Nav from "../Nav";
-import Footer from "../Footer";
-import "../styles/newFormBook.css";
-import "../styles/main.css";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function NewBook(props) {
-  const [categorias, setCategorias] =
-    React.useState([]);
-  const [datos, setDatos] = React.useState({
-    nombre: "",
-    descripcion: "",
-    categoriaid: "",
-  });
-  const obtenerCategorias = async () => {
-    try {
-      const respuesta = await axios.get(
-        "http://localhost:3000/categoria"
-      );
-      setCategorias(respuesta.data);
-    } catch (e) {}
-  };
-  React.useEffect(() => {
-    obtenerCategorias();
-  }, []);
-
-  const handleChangeNombre = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
-    );
-    nuevoState.nombre = e.target.value;
-    setDatos(nuevoState);
-  };
-
-  const handleChangeDescripcion = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
-    );
-    nuevoState.descripcion = e.target.value;
-    setDatos(nuevoState);
-  };
-
-  const handleChangeCategoria = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
-    );
-    nuevoState.categoriaid = e.target.value;
-    setDatos(nuevoState);
-  };
-  const enviarFormulario = async () => {
-    await axios.post(
-      "http://localhost:3000/libro",
-      datos
-    );
-  };
+function modifyBook(props) {
 
   return (
     <div>
@@ -113,6 +62,8 @@ function NewBook(props) {
       <Footer />
     </div>
   );
-}
+  
 
-export default NewBook;
+  }
+
+  */
