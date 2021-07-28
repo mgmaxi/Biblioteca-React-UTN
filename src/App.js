@@ -1,3 +1,5 @@
+import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home'
@@ -10,31 +12,41 @@ import formNewCategory from './components/categories/formNewCategory';
 import PersonList from './components/person/PersonList';
 import PersonByID from './components/person/PersonByID';
 import formNewPerson from './components/person/formNewPerson';
-import axios from 'axios';
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import Error from './components/others/error/Error';
+import { getBooks, getCategory, getPerson } from  './services/allServices';
 
 const App = () => {
 
-
   const dispatch = useDispatch();
+  const [error, setError] = useState([]); 
 
   useEffect(() => {
     const fetchAll = async () => {
-      let respuesta = await axios.get("http://localhost:3000/libro");
+      let respuesta = await getBooks();
+      if (respuesta.status === 200) {
       dispatch({ type: "AGREGAR_LISTADO_LIBROS", listado: respuesta.data });
-       respuesta = await axios.get(
-        "http://localhost:3000/categoria"
-      );
+      } else {
+      setError(respuesta)
+      }
+      respuesta = await getCategory();
+      if (respuesta.status === 200) {
       dispatch({ type: "AGREGAR_LISTA_CATEGORIAS", listado: respuesta.data });
-       respuesta = await axios.get("http://localhost:3000/persona");
+      } else {
+      setError(respuesta)
+      }
+      respuesta = await getPerson();
+      if (respuesta.status === 200) {
       dispatch({ type: "AGREGAR_LISTA_PERSONAS", listado: respuesta.data });
+      } else {
+      setError(respuesta)
+      }
     };
     fetchAll();
   }, [dispatch]);
 
   return (
     <div className="App">
+      <Error message={error} />
       <Router>
         <Route exact path="/" component={Home} /> 
 

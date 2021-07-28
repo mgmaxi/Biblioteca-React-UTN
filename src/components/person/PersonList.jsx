@@ -1,12 +1,5 @@
-/** @format */
-
-import React, {
-  useState,
-  useEffect,
-} from "react";
-
-/* Services */
-import { getPerson } from "../../services/allServices";
+import React from 'react';
+import {  useSelector } from 'react-redux';
 /* Styles */
 import "../styles/main.css";
 import "../styles/PersonList.css";
@@ -14,27 +7,12 @@ import "../styles/PersonList.css";
 import CardPerson from "./CardPerson";
 import Nav from "../Nav";
 import Footer from "../Footer";
-import Error from '../others/error/Error';
 
 export default function PersonList() {
-  const [personlist, setPersonList] = useState(
-    []
-  );
-  const [error, setError] = useState([]); 
+  
+  const listado = useSelector((state) => state.personas);
 
-  const fetchData = async () => {
-    const response = await getPerson();
-    if (response.status === 200) {
-      setPersonList(response.data);
-    } else {
-      setError(response)
-  }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const personListArray = personlist.map(
+  const personListArray = listado.map(
     (persona) => {
       return (
         <div>
@@ -53,7 +31,6 @@ export default function PersonList() {
       <div className="mainContainer">
         <div className="boxContainer">
           {personListArray}
-          <Error message={error} />
         </div>
       </div>
       <Footer />
