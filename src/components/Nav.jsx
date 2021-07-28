@@ -1,48 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './styles/nav.css' 
-import Logo from './others/logo/logo';
+import logo from '../logo.png';
 
 export default function Nav () {
     return (
         <div>
             <nav className="navbarContainer">
-                    <div className="navbarLogoContainer">
-                        <Logo url="/" subTitle="Where Are My Books?" />
-                    </div>
+                    <a href="/" className="navbarLogo">
+                        <div>
+                            <img src={logo} alt="" />
+                        </div>
+                        <div className="navbarTitle hide">
+                            <p>Where Are My Books?</p>
+                        </div>
+                    </a>
                     <div className="navbarLinks">
                         <ul>
-                            <li className="hide"><Link to="/">INICIO</Link></li>
-                            <li className="dropdown">
-                                <Link to="/libro" className="dropbtn">LIBROS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/libro">Todos los libros</Link>
-                                    <Link to="/libro/new">Agregar un libro</Link>
-                                </div>
-                            </li>
-                            <li className="dropdown">
-                                <Link to="/categoria" className="dropbtn">CATEGORIAS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/categoria">Todas las categorias</Link>
-                                    <Link to="/categoria/new">Agregar una categoria</Link>
-                                </div>
-                            </li>
-                            <li className="dropdown">
-                                <Link to="/persona" className="dropbtn">PERSONAS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/persona">Todas las personas</Link>
-                                    <Link to="/persona/new">Agregar una persona</Link>
-                                </div>
-                            </li>
+                            <li><a href="/">INICIO</a></li>
+                            <li><a href="/">LIBROS</a></li>
+                            <li><a href="/">GÉNEROS</a></li>
                         </ul>
                     </div>
                     <div className="navbarLoginSignin">
                         <ul>
                             <li>
-                                <Link aria-current="page" to="./login.jsx"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></Link>
+                                <a aria-current="page" href="/login"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></a>
                             </li>
                             <li>
-                                <Link aria-current="page" to="/signup"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></Link>
+                                <a aria-current="page" href="/signin"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></a>
                             </li>
                         </ul>
                     </div>
