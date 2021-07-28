@@ -9,7 +9,7 @@ import "../styles/main.css";
 
 function NewBook(props) {
   const dispatch = useDispatch();
-  const categorias = useSelector((state) => state.categorias);
+  const categorias = useSelector((state) => state.categoryReducer.categorias);
   const [datos, setDatos] = React.useState({
     nombre: "",
     descripcion: "",
