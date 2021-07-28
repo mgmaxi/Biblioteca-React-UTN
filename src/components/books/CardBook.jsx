@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 /* Components */
 import Edit from '../others/btn/btnEdit';
 import Return from '../others/btn/btnReturn';
@@ -15,6 +17,7 @@ export default function CardBook ({ libro }) {
 
     const [person, setPerson] = useState([]);
     const [error, setError] = useState([]); 
+    const dispatch = useDispatch();
 
     /* Consumo de la tabla Persona */
 
@@ -33,6 +36,15 @@ export default function CardBook ({ libro }) {
 
     const namePerson = person.map((persona)=> persona.nombre)
 
+    const handleBorrarLibro = async (idLibro) => {
+        try {
+        await axios.delete('http://localhost:3000/libro/' + idLibro);
+        dispatch({ type: "REMOVER_LIBRO", idLibroARemover: idLibro });
+        } catch (error) {
+        console.log(error);
+        }
+    };
+
     return (
             <div key={libro.id}>
                 <li className="listBooks">
@@ -40,7 +52,7 @@ export default function CardBook ({ libro }) {
                     <span className="owner">Prestado a: {namePerson}</span>
                     <Error message={error} />
                     <div className="btnGroup">
-                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return /><Delete />
+                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return /><Delete onClick={() => handleBorrarLibro(libro.id)} />
                     </div>
                 </li>
                 <hr />
