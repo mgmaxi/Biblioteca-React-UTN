@@ -1,118 +1,56 @@
-/** @format */
+import React, { Fragment, useState } from 'react';
+import axios from 'axios';
 
-import React from "react";
-import axios from "axios";
-import Nav from "../Nav";
-import Footer from "../Footer";
-import "../styles/newFormBook.css";
-import "../styles/main.css";
+const Formu = () => {
 
-function NewBook(props) {
-  const [categorias, setCategorias] =
-    React.useState([]);
-  const [datos, setDatos] = React.useState({
-    nombre: "",
-    descripcion: "",
-    categoriaid: "",
-  });
-  const obtenerCategorias = async () => {
-    try {
-      const respuesta = await axios.get(
-        "http://localhost:3000/categoria"
-      );
-      setCategorias(respuesta.data);
-    } catch (e) {}
-  };
-  React.useEffect(() => {
-    obtenerCategorias();
-  }, []);
 
-  const handleChangeNombre = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
+
+    
+   
+
+
+    const [datos, setdatos] = useState({
+        nombre: '',
+        descripcion: '',
+        categoria: '',
+        persona: ''
+    })
+
+    const handleInputChange = (e) => {
+
+        setdatos({
+            ...datos,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const  enviarFormulario = (e) => {
+        e.preventDefault();
+        console.log(datos.nombre + ' ' + datos.descripcion + ' ' + datos.categoria + ' ' + datos.persona);        
+        const respuesta = axios.post('http://localhost:3000/libro',datos);
+    }
+
+    return (
+
+        <div>
+            <h1>Formulario</h1>
+            <form onSubmit={enviarFormulario}>
+                <input onChange={handleInputChange} placeholder="Nombre" name="nombre" type="text"></input>
+                <br />
+                <input onChange={handleInputChange} placeholder="Descripción" name="descripcion" type="text"></input>
+                <br />
+                <input onChange={handleInputChange} placeholder="Categoría" name="categoria" type="text"></input>
+                <br />
+                <input onChange={handleInputChange} placeholder="Persona" name="persona" type="text"></input>
+                <br />
+                <button className="btn btn-primary" name="send" type="submit">Enviar</button>
+            </form>
+        </div>
+
     );
-    nuevoState.nombre = e.target.value;
-    setDatos(nuevoState);
-  };
+};
 
-  const handleChangeDescripcion = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
-    );
-    nuevoState.descripcion = e.target.value;
-    setDatos(nuevoState);
-  };
 
-  const handleChangeCategoria = (e) => {
-    const nuevoState = JSON.parse(
-      JSON.stringify(datos)
-    );
-    nuevoState.categoriaid = e.target.value;
-    setDatos(nuevoState);
-  };
-  const enviarFormulario = async () => {
-    await axios.post(
-      "http://localhost:3000/libro",
-      datos
-    );
-  };
 
-  return (
-    <div>
-      <Nav />
-      <div className="mainContainer">
-        <form
-          className="formContainerBook"
-          onSubmit={enviarFormulario}
-        >
-          <h1 className="formName">
-            Nuevo libro
-          </h1>
-          <label htmlFor="nombre">Titulo</label>
-          <input
-            onChange={handleChangeNombre}
-            name="nombre"
-            id="nombre"
-            type="text"
-            className="smallInputTextBook"
-          />
-          <br />
-          <label htmlFor="descripcion">
-            Descripcion
-          </label>
-          <input
-            onChange={handleChangeDescripcion}
-            name="descripcion"
-            id="descripcion"
-            type="text"
-            className="bigInputTextBook"
-            
-          />
-          <br />
-          <select class="btn btn-danger dropdown-toggle"
-            name="categoria"
-            onChange={handleChangeCategoria}
-          >
-            <option>Seleccione un género</option>
-            {categorias.map((unaCategoria) => (
-              <option value={unaCategoria.ID}>
-                {unaCategoria.nombre}
-              </option>
-            ))}
-          </select>
-          <br />
-          <button
-            className="btn btn-primary"
-            name="send"
-            type="submit"
-          >
-            Agregar
-          </button>
-        </form>
-      </div>
-      <Footer />
-    </div>
-  );
-}
 
-export default NewBook;
+export default Formu;

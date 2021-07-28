@@ -1,146 +1,106 @@
-.containerBookList {
-  width: 400px;
-  height: 200px;
-  margin-top: 200px;
-  margin-left: 0px;
-  margin-bottom: 200px;
-  padding: 25px;
-  position: relative;
-  width: auto;
-  min-width: 500px;
-  max-width: 900px;
-  height: auto;
-  min-height: 300px;
-  color: white;
-  background-color: rgba(27, 48, 117, 0.8);
-  border-radius: 10px;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 16px 7px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 16px 7px
-    rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 16px 7px
-    rgba(0, 0, 0, 0.75);
-}
-
-.listBooks {
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  margin: 10px 0 0 0;
-}
-
-.btnGroup {
-  margin: 5px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-
-}
-
-.listBooks {
-  display: flex;
-  flex-flow: column wrap;
-  margin: 10px 0 0 0;
-}
-
-.btnGroup {
-  margin: 5px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
+.container {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .card {
-  margin: 5px;
-  color: white;
-  width: 400px;
-  height: 400px;
-  background: url(../book.png) no-repeat center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    color: white;
+    width: 400px;
+    height: 400px;
+    background: url(../book.png) no-repeat center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  .cardBackGround {
-      width: 80%;
-      height: 90%;
-      background-color: rgb(0, 0, 0, 0.6);
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-      -webkit-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-      -moz-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
-  }
+    .cardBackGround {
+        width: 80%;
+        height: 90%;
+        background-color: rgb(0, 0, 0, 0.6);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.75);
+    }
 
-  .availability {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
+    .availability {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-  .options {
-      margin: 10px 0 0 0;
-      list-style: none;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      text-align: center;
-  }
-  .options ul {
-    list-style: none !important;
-    list-style-type: none !important;
-  }
-  .options li {
-      margin: 5px;
-      list-style: none !important;
-      list-style-type: none !important;
-  }
-  .options li p {
-      margin: 5px 2.5px 0 2.5px;
-      font-size: 12px;
-  }
+    .options {
+        margin: 10px 0 0 0;
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        text-align: center;
+    }
+    .options li {
+        margin: 5px;
+    }
+    .options li p {
+        margin: 5px 2.5px 0 2.5px;
+        font-size: 12px;
+    }
 
-  .tittleBook {
-      font-size: 22px;
-      text-transform: uppercase;
-      text-align: center;
-  }
+    .btn {
+        cursor: pointer;
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.65rem;
+        font-weight: bold;
+        letter-spacing: 0.025rem;
+        text-transform: uppercase;
+        color: white;
+        background-color: black;
+        border: none;
+    }
+    .btn:hover {
+        background-color: #0d0d0d;
+    }
 
-  .genreBook {
-      font-size: 16px;
-      text-align: center;
-  }
+    .tittleBook {
+        font-size: 22px;
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-  .descriptionBook {
-      margin: 5px 0;
-      width: 90%;
-      font-size: 14px;
-      text-align: center;
-  }
+    .genreBook {
+        font-size: 16px;
+        text-align: center;
+    }
 
-  .available {
-      font-size: 18px;
-      text-transform: uppercase;
-      color: rgb(0, 165, 0);
-      font-weight: bold;
-  }
+    .descriptionBook {
+        margin: 5px 0;
+        width: 90%;
+        font-size: 14px;
+        text-align: center;
+    }
 
-  .notAvailable {
-      font-size: 18px;
-      text-transform: uppercase;
-      color: rgb(255, 0, 0);
-      font-weight: bold;
-  }
+    .available {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: rgb(0, 165, 0);
+        font-weight: bold;
+    }
 
-  .owner {
-      font-size: 14px;
-      color: #ffffff;
-      
-  }
+    .notAvailable {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+    }
+
+    .owner {
+        font-size: 14px;
+        color: #ffffff;
+    }
