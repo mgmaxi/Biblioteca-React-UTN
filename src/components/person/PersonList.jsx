@@ -10,7 +10,7 @@ import Footer from "../Footer";
 
 export default function PersonList() {
   
-  const listado = useSelector((state) => state.personas);
+  const listado = useSelector((state) => state.personReducer.personas);
 
   const personListArray = listado.map(
     (persona) => {

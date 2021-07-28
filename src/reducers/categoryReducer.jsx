@@ -1,22 +1,26 @@
 /** @format */
 
 const estadoInicial = {
-  listado: [],
+  categorias: [],
 };
 function categoryReducer(
   state = estadoInicial,
   action
 ) {
-  let nuevoState = JSON.parse(
+  const nuevoState = JSON.parse(
     JSON.stringify(state)
   );
-
   switch (action.type) {
-    case "AGREGAR_CATEGORIAS":
-      nuevoState.listado.push(action.payload);
-      return nuevoState;
     case "AGREGAR_LISTADO_CATEGORIAS":
-      nuevoState.listado = action.listado;
+      nuevoState.categorias = action.listado;
+      return nuevoState;
+    case "REMOVER_CATEGORIA":
+      nuevoState.categorias =
+        nuevoState.categorias.filter(
+          (unaCategoria) =>
+            unaCategoria.id !==
+            action.idCategoriaARemover
+        );
       return nuevoState;
 
     default:

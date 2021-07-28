@@ -10,7 +10,7 @@ import Footer from "../Footer";
 
 export default function CategoryList() {
   
-  const listado = useSelector((state) => state.categorias);
+  const listado = useSelector((state) => state.categoryReducer.categorias);
 
   const categoryListArray = listado.map(
     (categoria) => {

@@ -8,11 +8,12 @@ import Logo from '../others/logo/logo';
 /* Styles */
 import '../styles/main.css';
 import '../styles/bookView.css'
+import store from '../../redux/store';
 /* Services */
 
 export default function BookList() {
 
-    const listado = useSelector((state) => state.libros);
+    const listado = useSelector((state) => state.bookReducer.libros);
 
     const bookListArray = listado.map((libro)=> ( <CardBook key={libro.id} libro={libro} /> ));
 

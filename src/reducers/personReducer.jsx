@@ -1,21 +1,26 @@
 /** @format */
 
 const estadoInicial = {
-  listado: [],
+  personas: [],
 };
 function personaReducer(
   state = estadoInicial,
   action
 ) {
-  let nuevoState = JSON.parse(
+  const nuevoState = JSON.parse(
     JSON.stringify(state)
   );
   switch (action.type) {
-    case "AGREGAR_PERSONA":
-      nuevoState.listado.push(action.payload);
-      return nuevoState;
     case "AGREGAR_LISTADO_PERSONAS":
-      nuevoState.listado = action.listado;
+      nuevoState.personas = action.listado;
+      return nuevoState;
+    case "REMOVER_PERSONA":
+      nuevoState.personas =
+        nuevoState.personas.filter(
+          (unaPersona) =>
+            unaPersona.id !==
+            action.idPersonaARemover
+        );
       return nuevoState;
 
     default:
