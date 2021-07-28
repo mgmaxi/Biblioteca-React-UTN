@@ -1,31 +1,14 @@
-import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-/* Components */
+/** @format */
 import Edit from "../others/btn/btnEdit";
 import Delete from "../others/btn/btnDelete";
 import Book from '../others/btn/btnBook';
-import Error from '../others/error/Error';
-/* Styles */
+import React from "react";
 import "../styles/cardPerson.css";
 
 export default function CardPerson({
   persona,
   libro,
 }) {
-
-  const dispatch = useDispatch();
-  const [error, setError] = useState([]); 
-
-  const handleBorrarPersona = async (IdPersona) => {
-    try {
-    await axios.delete('http://localhost:3000/persona/' + IdPersona);
-    dispatch({ type: "REMOVER_PERSONA", IdPersonaARemover: IdPersona });
-    } catch (error) {
-    setError(error);
-    }
-};
-
   return (
     <div className="container">
       <div
@@ -58,9 +41,11 @@ export default function CardPerson({
           <div className="btnGroupPerson">
             <Book subTitle="Libros que posee" url={'/persona/view/' + persona.ID} />
             <Edit />
-            <Delete onClick={() => handleBorrarPersona(persona.ID)} />
+            <Delete />
           </div>
-          <Error message={error} />
+          {/*<h2 className="bookBorrowed">
+            Libros prestados: {libro.personaid}
+  </h2>*/}
         </div>
       </div>
     </div>

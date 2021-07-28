@@ -12,21 +12,12 @@ function reducer(state = initialState, action) {
       case "AGREGAR_LISTADO_LIBROS":
         nuevoState.libros = action.listado;
         return nuevoState;
-    case "AGREGAR_LISTADO_CATEGORIAS":
+    case "AGREGAR_LISTA_CATEGORIAS":
         nuevoState.categorias = action.listado;
         return nuevoState;
-    case "AGREGAR_LISTADO_PERSONAS":
+    case "AGREGAR_LISTA_PERSONAS":
         nuevoState.personas = action.listado;
         return nuevoState;
-    case "REMOVER_LIBRO":
-      nuevoState.lisbros = nuevoState.libros.filter((unLibro) => unLibro.id !== action.idLibroARemover);
-      return nuevoState;
-    case "REMOVER_CATEGORIA":
-      nuevoState.categorias = nuevoState.categorias.filter((unaCategoria) => unaCategoria.id !== action.idCategoriaARemover);
-      return nuevoState;
-    case "REMOVER_PERSONA":
-      nuevoState.personas = nuevoState.personas.filter((unaPersona) => unaPersona.id !== action.idPersonaARemover);
-      return nuevoState;
       default:
         return state;
     }

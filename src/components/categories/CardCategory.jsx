@@ -1,30 +1,13 @@
-import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-/* Components */
+/** @format */
 import Edit from '../others/btn/btnEdit';
 import Delete from '../others/btn/btnDelete';
 import Book from '../others/btn/btnBook';
-import Error from '../others/error/Error';
-/* Styles */
+import React from "react";
 import "../styles/cardCategory.css";
 
 export default function CardCategory({
   categoria,
 }) {
-
-  const dispatch = useDispatch();
-  const [error, setError] = useState([]); 
-
-  const handleBorrarLibro = async (idCategoria) => {
-    try {
-    await axios.delete('http://localhost:3000/categoria/' + idCategoria);
-    dispatch({ type: "REMOVER_CATEGORIA", idCategoriaARemover: idCategoria });
-    } catch (error) {
-      setError(error)
-    }
-};
-
   return (
     <div className="container">
       <div
@@ -40,9 +23,8 @@ export default function CardCategory({
           </h2>
 
           <div className="btnGroupCategory">
-                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit /><Delete onClick={() => handleBorrarLibro(categoria.ID)} />
-          </div>
-          <Error message={error} />
+                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit /><Delete /> 
+                    </div>
           </div>
         </div>
       </div>
