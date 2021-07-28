@@ -1,5 +1,5 @@
 /** @format */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
@@ -9,24 +9,12 @@ import "../styles/main.css";
 
 function NewBook(props) {
   const dispatch = useDispatch();
-  const [categorias, setCategorias] =
-    React.useState([]);
+  const categorias = useSelector((state) => state.categorias);
   const [datos, setDatos] = React.useState({
     nombre: "",
     descripcion: "",
     categoriaid: "",
   });
-  const obtenerCategorias = async () => {
-    try {
-      const respuesta = await axios.get(
-        "http://localhost:3000/categoria"
-      );
-      setCategorias(respuesta.data);
-    } catch (e) {}
-  };
-  React.useEffect(() => {
-    obtenerCategorias();
-  }, []);
 
   const handleChangeNombre = (e) => {
     const nuevoState = JSON.parse(
