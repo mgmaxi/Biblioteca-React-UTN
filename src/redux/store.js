@@ -19,7 +19,10 @@ function reducer(state = initialState, action) {
         nuevoState.personas = action.listado;
         return nuevoState;
     case "REMOVER_LIBRO":
-      nuevoState.lisbros = nuevoState.libros.filter((unLibro) => unLibro.id !== action.idLibroARemover);
+      nuevoState.libros = nuevoState.libros.filter((unLibro) => unLibro.id !== action.idLibroARemover);
+      return nuevoState;
+      case "DEVOLVER_LIBRO":
+      nuevoState.libros = nuevoState.libros.filter((DevolverLibro) => DevolverLibro.id !== action.idLibro1ADevolver);
       return nuevoState;
     case "REMOVER_CATEGORIA":
       nuevoState.categorias = nuevoState.categorias.filter((unaCategoria) => unaCategoria.id !== action.idCategoriaARemover);

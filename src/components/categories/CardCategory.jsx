@@ -16,7 +16,7 @@ export default function CardCategory({
   const dispatch = useDispatch();
   const [error, setError] = useState([]); 
 
-  const handleBorrarLibro = async (idCategoria) => {
+  const handleBorrarCategoria = async (idCategoria) => {
     try {
     await axios.delete('http://localhost:3000/categoria/' + idCategoria);
     dispatch({ type: "REMOVER_CATEGORIA", idCategoriaARemover: idCategoria });
@@ -40,7 +40,7 @@ export default function CardCategory({
           </h2>
 
           <div className="btnGroupCategory">
-                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit /><Delete onClick={() => handleBorrarLibro(categoria.ID)} />
+                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit /><Delete onClick={() => handleBorrarCategoria(categoria.ID)} />
           </div>
           <Error message={error} />
           </div>

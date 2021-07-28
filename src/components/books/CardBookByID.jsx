@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 /* Components */
 import Edit from '../others/btn/btnEdit';
@@ -16,6 +18,7 @@ export default function CardBookByID ({ libro }) {
     const [person, setPerson] = useState([]);
     const [errorPerson, setErrorPerson] = useState([]); 
     const [errorCategory, setErrorCategory] = useState([]); 
+    const dispatch = useDispatch();
 
     /* Consumo de la tabla Categoria */
 
@@ -49,6 +52,15 @@ export default function CardBookByID ({ libro }) {
     const nameCategory = category.map((categoria)=> categoria.nombre)
     const aliasPerson = person.map((persona)=> persona.alias)
 
+    const handleDevolverLibro = async (idLibro) => {
+        try {
+        await axios.put('http://localhost:3000/libro/devolver/' + idLibro);
+        dispatch({ type: "DEVOLVER_LIBRO", idLibroADevolver: idLibro });
+        } catch (error) {
+        console.log(error);
+        }
+    };
+
     return (
             <div key={libro.id} className="bookContainer">
                 <h1 className="tittleBook">{libro.nombre}</h1>
@@ -60,7 +72,7 @@ export default function CardBookByID ({ libro }) {
                 </div>
                 <Error message={errorPerson} />
                 <ul className="options">
-                    <li><Edit /></li>
+                    <li><Edit onClick={() => handleDevolverLibro(libro.id)} /></li>
                     <li><Return /></li>
                     <li><Delete /></li>
                 </ul>

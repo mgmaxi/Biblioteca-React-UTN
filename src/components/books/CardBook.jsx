@@ -44,6 +44,14 @@ export default function CardBook ({ libro }) {
         console.log(error);
         }
     };
+    const handleDevolverLibro = async (idLibro1) => {
+        try {
+        await axios.put('http://localhost:3000/libro/devolver/' + idLibro1);
+        dispatch({ type: "DEVOLVER_LIBRO", idLibroADevolver: idLibro1 });
+        } catch (error) {
+        console.log(error);
+        }
+    };
 
     return (
             <div key={libro.id}>
@@ -52,7 +60,7 @@ export default function CardBook ({ libro }) {
                     <span className="owner">Prestado a: {namePerson}</span>
                     <Error message={error} />
                     <div className="btnGroup">
-                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return /><Delete onClick={() => handleBorrarLibro(libro.id)} />
+                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
                     </div>
                 </li>
                 <hr />
