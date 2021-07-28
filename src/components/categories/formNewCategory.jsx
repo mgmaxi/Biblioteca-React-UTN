@@ -1,5 +1,5 @@
 /** @format */
-
+import { useDispatch } from "react-redux";
 import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
@@ -8,6 +8,7 @@ import "../styles/newFormCategory.css";
 import "../styles/main.css";
 
 function NewCategory(props) {
+  const dispatch = useDispatch();
   const [datos, setDatos] = React.useState({
     nombre: "",
   });
@@ -18,12 +19,23 @@ function NewCategory(props) {
     nuevoState.nombre = e.target.value;
     setDatos(nuevoState);
   };
+
   const enviarFormulario = async () => {
-    await axios.post(
+    
+  try {
+    const response = await axios.post(
       "http://localhost:3000/categoria",
       datos
     );
-  };
+
+    dispatch({
+      type: "AGREGAR_CATEGORIA",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.response);
+  }
+}  
 
   return (
     <div>

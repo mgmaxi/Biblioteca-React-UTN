@@ -1,5 +1,5 @@
 /** @format */
-
+import { useDispatch } from "react-redux";
 import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
@@ -8,6 +8,7 @@ import "../styles/newFormBook.css";
 import "../styles/main.css";
 
 function NewBook(props) {
+  const dispatch = useDispatch();
   const [categorias, setCategorias] =
     React.useState([]);
   const [datos, setDatos] = React.useState({
@@ -51,11 +52,21 @@ function NewBook(props) {
     setDatos(nuevoState);
   };
   const enviarFormulario = async () => {
-    await axios.post(
-      "http://localhost:3000/libro",
-      datos
-    );
-  };
+    
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/libro",
+        datos
+      );
+  
+      dispatch({
+        type: "AGREGAR_CATEGORIA",
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error.response);
+    }
+  }  
 
   return (
     <div>

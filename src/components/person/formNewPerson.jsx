@@ -1,16 +1,15 @@
 /** @format */
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import Nav from "../Nav";
 import Footer from "../Footer";
 import "../styles/newFormPerson.css";
 import "../styles/main.css";
 
-
 function NewPerson(props) {
   const dispatch = useDispatch();
-  const [datos, setDatos] = useState({
+  const [datos, setDatos] = React.useState({
     nombre: "",
     apellido: "",
     email: "",
@@ -46,21 +45,22 @@ function NewPerson(props) {
     nuevoState.alias = e.target.value;
     setDatos(nuevoState);
   };
-  const enviarFormulario = async (e) => {
-    e.preventDefault();
+  const enviarFormulario = async () => {
+    
     try {
-  const response = await 
-  axios.post("http://localhost:3000/persona", datos)
+      const response = await axios.post(
+        "http://localhost:3000/persona",
+        datos
+      );
 
-  dispatch({
-    type: "AGREGAR_PERSONA",
-    payload: response.data,
-  });
-} catch(error) {
-  console.log(error.response);
- 
-}
-  }
+      dispatch({
+        type: "AGREGAR_PERSONA",
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error.response);
+    }
+  }  
   return (
     <div>
       <Nav />
