@@ -30,13 +30,13 @@ const App = () => {
       }
       respuesta = await getCategory();
       if (respuesta.status === 200) {
-      dispatch({ type: "AGREGAR_LISTA_CATEGORIAS", listado: respuesta.data });
+      dispatch({ type: "AGREGAR_LISTADO_CATEGORIAS", listado: respuesta.data });
       } else {
       setError(respuesta)
       }
       respuesta = await getPerson();
       if (respuesta.status === 200) {
-      dispatch({ type: "AGREGAR_LISTA_PERSONAS", listado: respuesta.data });
+      dispatch({ type: "AGREGAR_LISTADO_PERSONAS", listado: respuesta.data });
       } else {
       setError(respuesta)
       }
