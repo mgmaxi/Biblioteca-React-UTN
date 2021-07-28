@@ -10,6 +10,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
@@ -36,17 +38,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "Trabajo práctico grupal de la diplomatura en desarrollo web full stack con React brindada por la UTN.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mgmaxi/Biblioteca-React-UTN.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mgmaxi/Biblioteca-React-UTN/issues"
-  },
-  "homepage": "https://github.com/mgmaxi/Biblioteca-React-UTN#readme"
+  }
 }
