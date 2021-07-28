@@ -13,20 +13,18 @@ export default function CategoryList() {
   const listado = useSelector((state) => state.categoryReducer.categorias);
 
   const categoryListArray = listado.map(
-    (categoria) => {
-      return (
-        <div>
+    (categoria) => 
+    
+    
           <CardCategory
             key={categoria.id}
             categoria={categoria}
           />
-        </div>
-      );
-    }
-  );
+        );
+  
 
   return (
-    <div>
+    <>
       <Nav />
       <div className="mainContainer">
         <div className="boxContainer">
@@ -34,8 +32,10 @@ export default function CategoryList() {
         </div>
       </div>
       <Footer />
-    </div>
-  );
-}
+    
+  
+</>
+  )
+  }
 
   

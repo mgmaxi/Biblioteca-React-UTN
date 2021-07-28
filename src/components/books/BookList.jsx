@@ -8,7 +8,7 @@ import Logo from '../others/logo/logo';
 /* Styles */
 import '../styles/main.css';
 import '../styles/bookView.css'
-import store from '../../redux/store';
+
 /* Services */
 
 export default function BookList() {
