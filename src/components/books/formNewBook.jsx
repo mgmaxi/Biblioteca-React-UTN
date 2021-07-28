@@ -60,7 +60,7 @@ function NewBook(props) {
       );
   
       dispatch({
-        type: "AGREGAR_CATEGORIA",
+        type: "AGREGAR_LIBRO",
         payload: response.data,
       });
     } catch (error) {
