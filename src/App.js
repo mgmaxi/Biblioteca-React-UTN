@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home'
@@ -11,8 +10,29 @@ import formNewCategory from './components/categories/formNewCategory';
 import PersonList from './components/person/PersonList';
 import PersonByID from './components/person/PersonByID';
 import formNewPerson from './components/person/formNewPerson';
+import axios from 'axios';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-function App() {
+const App = () => {
+
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      let respuesta = await axios.get("http://localhost:3000/libro");
+      dispatch({ type: "AGREGAR_LISTADO_LIBROS", listado: respuesta.data });
+       respuesta = await axios.get(
+        "http://localhost:3000/categoria"
+      );
+      dispatch({ type: "AGREGAR_LISTA_CATEGORIAS", listado: respuesta.data });
+       respuesta = await axios.get("http://localhost:3000/persona");
+      dispatch({ type: "AGREGAR_LISTA_PERSONAS", listado: respuesta.data });
+    };
+    fetchAll();
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Router>

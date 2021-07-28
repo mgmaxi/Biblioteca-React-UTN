@@ -1,11 +1,14 @@
 import { createStore } from "redux";
 
+
 const initialState = {
-    bookList: [],
+    listaLibros: [],
+    listaPersonas: [],
+    liastaLibros: []
 };
 
 function reducer (state = initialState, action) {
-
+return{}
 }
 
 

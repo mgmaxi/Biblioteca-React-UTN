@@ -5,5 +5,5 @@ import {combineReducers} from "redux";
 
 
 export default combineReducers({
-  bookList, personReducer, categoryReducer
+  bookReducer, personReducer, categoryReducer
 })
