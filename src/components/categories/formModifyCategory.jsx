@@ -13,6 +13,8 @@ function Modify(props) {
 
   const dispatch = useDispatch();
 
+  
+  
   const [datos, setData] = useState({
     ID: id,
     nombre: nombre,
@@ -29,7 +31,8 @@ const enviarFormulario = async () => {
     try {
       await axios.put(  `http://localhost:3000/categoria/${id}`, datos);
       dispatch({ type: "MODIFY_CATEGORY", payload: [parseInt(id), datos.nombre] });
-     
+      props.history.push({
+        pathname:`/categoria`});
     } catch (error) {
       console.log(error)
   }

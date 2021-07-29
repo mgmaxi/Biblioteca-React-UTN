@@ -1,19 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 import './App.css';
 /* Components book */
 import Home from './components/Home'
 import BookList from './components/books/BookList';
 import BookByID from './components/books/BookByID';
 import formNewBook from './components/books/formNewBook';
-<<<<<<< Updated upstream
-import FormLendBook from './components/books/formLendBook';
-=======
 import formModifyBook from './components/books/formModifyBook'
 import formBorrowBook from './components/books/formBorrowBook'
 /* Components category */
->>>>>>> Stashed changes
 import CategoryList from './components/categories/CategoryList';
 import CategoryByID from './components/categories/CategoryByID';
 import formNewCategory from './components/categories/formNewCategory';
@@ -60,6 +58,7 @@ const App = () => {
     <div className="App">
       <Error message={error} />
       <Router>
+        <Switch>
         <Route exact path="/" component={Home} /> 
 
         <Route exact path="/libro" component={BookList} /> {/* Muestra todos los libros */}
@@ -76,7 +75,7 @@ const App = () => {
         <Route exact path="/persona/view/:id" component={PersonByID} />  {/* Muestra una persona específica */}
         <Route exact path="/persona/new" component={formNewPerson} />  {/* Agrega una persona */ }
         <Route exact path="/persona/modify/:id/:nombre/:apellido/:email/:alias" component={formModifyPerson}/> {/* Modifica una persona en especifica */ }
-
+        </Switch>
       </Router>
     </div>
   );

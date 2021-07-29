@@ -9,25 +9,19 @@ import "../styles/newFormBook.css";
 import "../styles/main.css";
 
 function BorrowBook(props) {
-    const {id} = useParams();
+    const {id, nombre} = useParams();
     const dispatch = useDispatch();
     const personas = useSelector((state) => state.personReducer.personas);
     const [data, setData] = React.useState({
-    
-     persona_id: 0
-
+   
+personaid: 0
     });
     
-    const handleNombre = (e) => {
-        const nuevoState = JSON.parse(JSON.stringify(data));
-        nuevoState.nombre = e.target.value;
-        setData(nuevoState);
-      };
-    const handlePrestarLibro = (e) => {
+    const handlePrestarLibro = ({target}) => {
       const nuevoState = JSON.parse(
         JSON.stringify(data)
       );
-      nuevoState.id = e.target.value;
+      nuevoState.personaid = target.value;
       setData(nuevoState);
     };
   
@@ -43,11 +37,11 @@ function BorrowBook(props) {
         dispatch({
           type: "BORROW_BOOK",
           payload: {
+            id: id,
             persona: data.personaid,
-            id: id
           },  });
       } catch (error) {
-        console.log(error.response);
+        console.log(error.response.data);
       }
     }  
 
@@ -64,8 +58,8 @@ return (
           </h1>
           <label htmlFor="nombre">Titulo</label>
           <input
-          required value={data.nombre}
-          onChange={handleNombre}
+          value={nombre}
+          
             readOnly
             name="nombre"
             id="nombre"
@@ -79,7 +73,7 @@ return (
           >
             <option>Seleccione una persona</option>
             {personas.map((unaPersona) => (
-              <option value={unaPersona.ID}>
+              <option key={unaPersona.ID}>
                 {unaPersona.nombre}
               </option>
             ))}
