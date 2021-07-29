@@ -20,7 +20,7 @@ export default function CardPerson({
   const handleBorrarPersona = async (IdPersona) => {
     try {
     await axios.delete('http://localhost:3000/persona/' + IdPersona);
-    dispatch({ type: "ELIMINAR_PERSONA", IdPersonaARemover: IdPersona });
+    dispatch({ type: "DELETE_PERSON", IdPersonaARemover: IdPersona });
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

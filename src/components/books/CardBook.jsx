@@ -42,7 +42,7 @@ export default function CardBook ({ libro }) {
     const handleBorrarLibro = async (idLibro) => {
         try {
         await axios.delete('http://localhost:3000/libro/' + idLibro);
-        dispatch({ type: "REMOVER_LIBRO", idLibroARemover: idLibro });
+        dispatch({ type: "DELETE_BOOK", idLibroARemover: idLibro });
         } catch (error) {
         setErrorDelete(error.response.data.Mensaje);
         }
@@ -50,7 +50,7 @@ export default function CardBook ({ libro }) {
     const handleDevolverLibro = async (idLibro1) => {
         try {
         await axios.put('http://localhost:3000/libro/devolver/' + idLibro1);
-        dispatch({ type: "DEVOLVER_LIBRO", idLibroADevolver: idLibro1 });
+        dispatch({ type: "RETURN_BOOK", idLibroADevolver: idLibro1 });
         } catch (error) {
         setErrorReturn(error.response.data.Mensaje);
         }

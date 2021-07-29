@@ -36,19 +36,19 @@ const App = () => {
     const fetchAll = async () => {
       let respuesta = await getBooks();
       if (respuesta.status === 200) {
-      dispatch({ type: "AGREGAR_LISTADO_LIBROS", listado: respuesta.data });
+      dispatch({ type: "ADD_BOOK_LIST", listado: respuesta.data });
       } else {
       setError(respuesta)
       }
       respuesta = await getCategory();
       if (respuesta.status === 200) {
-      dispatch({ type: "AGREGAR_LISTADO_CATEGORIAS", listado: respuesta.data });
+      dispatch({ type: "ADD_CATEGORY_LIST", listado: respuesta.data });
       } else {
       setError(respuesta)
       }
       respuesta = await getPerson();
       if (respuesta.status === 200) {
-      dispatch({ type: "AGREGAR_LISTADO_PERSONAS", listado: respuesta.data });
+      dispatch({ type: "ADD_PERSON_LIST", listado: respuesta.data });
       } else {
       setError(respuesta)
       }

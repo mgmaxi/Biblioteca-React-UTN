@@ -13,10 +13,10 @@ function bookReducer(
   let index = 0;
 
   switch (action.type) {
-    case "AGREGAR_LISTADO_LIBROS":
+    case "ADD_BOOK_LIST":
       nuevoState.libros = action.listado;
       return nuevoState;
-    case "ELIMINAR_LIBRO":
+    case "DELETE_BOOK":
       nuevoState.libros =
         nuevoState.libros.filter(
           (unLibro) =>
@@ -24,7 +24,7 @@ function bookReducer(
         );
 
       return nuevoState;
-    case "DEVOLVER_LIBRO":
+    case "RETURN_BOOK":
       nuevoState.libros =
         nuevoState.libros.filter(
           (DevolverLibro) =>
@@ -33,7 +33,7 @@ function bookReducer(
         );
       return nuevoState;
       
-    case "MODIFICAR_LIBRO":
+    case "MODIFY_BOOK":
        index = nuevoState.libros.findIndex(
         (obj) =>
           obj.libro_id ===
@@ -44,7 +44,7 @@ function bookReducer(
       return nuevoState;
 
 
-      case "PRESTAR_LIBRO":
+      case "BORROW_BOOK":
         index = nuevoState.libros.findIndex(
             (obj) => obj.libro_id === parseInt(action.payload[0])
           );

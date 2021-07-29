@@ -12,10 +12,10 @@ function categoryReducer(
   );
   
   switch (action.type) {
-    case "AGREGAR_LISTADO_CATEGORIAS":
+    case "ADD_CATEGORY_LIST":
       nuevoState.categorias = action.listado;
       return nuevoState;
-    case "ELIMINAR_CATEGORIA":
+    case "DELETE_CATEGORY":
       nuevoState.categorias =
         nuevoState.categorias.filter(
           (unaCategoria) =>
@@ -23,7 +23,7 @@ function categoryReducer(
             action.idCategoriaARemover
         );
       return nuevoState;
-    case "MODIFICAR_CATEGORIA":
+    case "MODIFY_CATEGORY":
       const  index = nuevoState.listado.findIndex(
         (obj) =>
           obj.categoria_id ===

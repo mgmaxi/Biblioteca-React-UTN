@@ -11,10 +11,10 @@ function personaReducer(
     JSON.stringify(state)
   );
   switch (action.type) {
-    case "AGREGAR_LISTADO_PERSONAS":
+    case "ADD_PERSON_LIST":
       nuevoState.personas = action.listado;
       return nuevoState;
-    case "ELIMINAR_PERSONA":
+    case "DELETE_PERSON":
       nuevoState.personas =
         nuevoState.personas.filter(
           (unaPersona) =>
@@ -22,7 +22,7 @@ function personaReducer(
             action.idPersonaARemover
         );
       return nuevoState;
-      case "MODIFICAR_PERSONA":
+      case "MODIFY_PERSON":
       const  index = nuevoState.listado.findIndex(
         (obj) =>
           obj.categoria_id ===
