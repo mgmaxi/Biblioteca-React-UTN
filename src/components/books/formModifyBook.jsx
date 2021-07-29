@@ -13,13 +13,13 @@ function ModifyBook(props) {
 
   const dispatch = useDispatch();
 
-  const [datos, setData] = useState({
+  const [data, setData] = useState({
     ID: id,
     descripcion: descripcion,
   });
 
   const handleDescripcion = (e) => {
-    const nuevoState = JSON.parse(JSON.stringify(datos));
+    const nuevoState = JSON.parse(JSON.stringify(data));
     nuevoState.descripcion = e.target.value;
     setData(nuevoState);
   };
@@ -27,8 +27,8 @@ function ModifyBook(props) {
 const enviarFormulario = async () => {
     
     try {
-      await axios.put(  `http://localhost:3000/libro/${id}`, datos);
-      dispatch({ type: "MODIFICAR_LIBRO", payload: [parseInt(id), datos.descripcion] });
+      await axios.put(  `http://localhost:3000/libro/${id}`, data);
+      dispatch({ type: "MODIFICAR_LIBRO", payload: [parseInt(id), data.descripcion] });
      
     } catch (error) {
       console.log(error)
@@ -49,7 +49,7 @@ const enviarFormulario = async () => {
           <label htmlFor="descripcion">Descripcion</label>
           <input
             required
-            value={datos.descripcion}
+            value={data.descripcion}
             onChange={handleDescripcion}
             name="descripcion"
             id="descripcion"
