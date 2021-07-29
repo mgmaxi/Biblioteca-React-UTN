@@ -1,10 +1,5 @@
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 /* Components */
-import Edit from '../others/btn/btnEdit';
-import Return from '../others/btn/btnReturn';
-import Delete from '../others/btn/btnDelete';
 import Logo from '../others/logo/logo';
 import Error from '../others/error/Error';
 /* Styles */
@@ -18,7 +13,6 @@ export default function CardBookByID ({ libro }) {
     const [person, setPerson] = useState([]);
     const [errorPerson, setErrorPerson] = useState([]); 
     const [errorCategory, setErrorCategory] = useState([]); 
-    const dispatch = useDispatch();
 
     /* Consumo de la tabla Categoria */
 
@@ -52,30 +46,16 @@ export default function CardBookByID ({ libro }) {
     const nameCategory = category.map((categoria)=> categoria.nombre)
     const aliasPerson = person.map((persona)=> persona.alias)
 
-    const handleDevolverLibro = async (idLibro) => {
-        try {
-        await axios.put('http://localhost:3000/libro/devolver/' + idLibro);
-        dispatch({ type: "DEVOLVER_LIBRO", idLibroADevolver: idLibro });
-        } catch (error) {
-        console.log(error);
-        }
-    };
-
     return (
             <div key={libro.id} className="bookContainer">
                 <h1 className="tittleBook">{libro.nombre}</h1>
                 <h2>Género: {nameCategory}</h2>
                 <Error message={errorCategory} />
-                <p>{libro.descripcion}</p> 
+                <h2>Descripción:</h2><p>{libro.descripcion}</p> 
                 <div className="availability">
                     <span className="owner">Prestado a: {aliasPerson}  </span>
                 </div>
                 <Error message={errorPerson} />
-                <ul className="options">
-                    <li><Edit onClick={() => handleDevolverLibro(libro.id)} /></li>
-                    <li><Return /></li>
-                    <li><Delete /></li>
-                </ul>
                 <Logo subTitle="Volver a Libros" url="/libro" />
             </div>
     )

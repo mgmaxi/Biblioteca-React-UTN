@@ -4,11 +4,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import Nav from "../Nav";
 import Footer from "../Footer";
+import Error from '../others/error/Error';
 import "../styles/newFormPerson.css";
 import "../styles/main.css";
 
 function NewPerson(props) {
   const dispatch = useDispatch();
+  const [error, setError] = React.useState([]); 
   const [datos, setDatos] = React.useState({
     nombre: "",
     apellido: "",
@@ -58,7 +60,7 @@ function NewPerson(props) {
         payload: response.data,
       });
     } catch (error) {
-      console.log(error.response);
+      setError(error.response.data.Mensaje);
     }
   }  
   return (
@@ -119,6 +121,7 @@ function NewPerson(props) {
           >
             Enviar
           </button>
+          <Error message={error} />
         </form>
       </div>
       <Footer />

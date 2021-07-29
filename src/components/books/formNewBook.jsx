@@ -4,12 +4,14 @@ import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
+import Error from '../others/error/Error';
 import "../styles/newFormBook.css";
 import "../styles/main.css";
 
 function NewBook(props) {
   const dispatch = useDispatch();
   const categorias = useSelector((state) => state.categoryReducer.categorias);
+  const [error, setError] = React.useState([]); 
   const [datos, setDatos] = React.useState({
     nombre: "",
     descripcion: "",
@@ -40,7 +42,7 @@ function NewBook(props) {
     setDatos(nuevoState);
   };
   const enviarFormulario = async () => {
-    
+    //e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:3000/libro",
@@ -52,7 +54,7 @@ function NewBook(props) {
         payload: response.data,
       });
     } catch (error) {
-      console.log(error.response);
+      setError(error.response.data.Mensaje);
     }
   }  
 
@@ -107,6 +109,7 @@ function NewBook(props) {
           >
             Agregar
           </button>
+          <Error message={error} />
         </form>
       </div>
       <Footer />

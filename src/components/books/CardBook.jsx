@@ -17,6 +17,9 @@ export default function CardBook ({ libro }) {
 
     const [person, setPerson] = useState([]);
     const [error, setError] = useState([]); 
+    const [errorDelete, setErrorDelete] = useState([]);
+    const [errorReturn, setErrorReturn] = useState([]); 
+
     const dispatch = useDispatch();
 
     /* Consumo de la tabla Persona */
@@ -41,7 +44,7 @@ export default function CardBook ({ libro }) {
         await axios.delete('http://localhost:3000/libro/' + idLibro);
         dispatch({ type: "REMOVER_LIBRO", idLibroARemover: idLibro });
         } catch (error) {
-        console.log(error);
+        setErrorDelete(error.response.data.Mensaje);
         }
     };
     const handleDevolverLibro = async (idLibro1) => {
@@ -49,7 +52,7 @@ export default function CardBook ({ libro }) {
         await axios.put('http://localhost:3000/libro/devolver/' + idLibro1);
         dispatch({ type: "DEVOLVER_LIBRO", idLibroADevolver: idLibro1 });
         } catch (error) {
-        console.log(error);
+        setErrorReturn(error.response.data.Mensaje);
         }
     };
 
@@ -62,6 +65,7 @@ export default function CardBook ({ libro }) {
                     <div className="btnGroup">
                     <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
                     </div>
+                    <Error message={errorReturn} /><Error message={errorDelete} /> 
                 </li>
                 <hr />
             </div>

@@ -21,7 +21,7 @@ export default function CardCategory({
     await axios.delete('http://localhost:3000/categoria/' + idCategoria);
     dispatch({ type: "REMOVER_CATEGORIA", idCategoriaARemover: idCategoria });
     } catch (error) {
-      setError(error)
+      setError(error.response.data.Mensaje);
     }
 };
 

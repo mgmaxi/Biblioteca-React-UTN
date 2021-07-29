@@ -4,11 +4,13 @@ import React from "react";
 import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
+import Error from '../others/error/Error';
 import "../styles/newFormCategory.css";
 import "../styles/main.css";
 
 function NewCategory(props) {
   const dispatch = useDispatch();
+  const [error, setError] = React.useState([]); 
   const [datos, setDatos] = React.useState({
     nombre: "",
   });
@@ -33,7 +35,7 @@ function NewCategory(props) {
       payload: response.data,
     });
   } catch (error) {
-    console.log(error.response);
+    setError(error.response.data.Mensaje);
   }
 }  
 
@@ -64,6 +66,7 @@ function NewCategory(props) {
           >
             Agregar
           </button>
+        <Error message={error} />
         </form>
       </div>
       <Footer />

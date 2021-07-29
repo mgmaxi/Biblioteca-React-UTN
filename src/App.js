@@ -6,6 +6,7 @@ import Home from './components/Home'
 import BookList from './components/books/BookList';
 import BookByID from './components/books/BookByID';
 import formNewBook from './components/books/formNewBook';
+import FormLendBook from './components/books/formLendBook';
 import CategoryList from './components/categories/CategoryList';
 import CategoryByID from './components/categories/CategoryByID';
 import formNewCategory from './components/categories/formNewCategory';
@@ -55,6 +56,7 @@ const App = () => {
         <Route exact path="/libro/view/:id" component={BookByID} /> {/* Muestra un libro específico */}
         <Route exact path="/libro/new" component={formNewBook} />  {/* Agrega un libro */ }
         {/*<Route exact path="/libro/modify" component={} /> */}
+        <Route exact path="/libro/lend/:id" component={FormLendBook} /> {/* Prestar libro */}
 
         <Route exact path="/categoria" component={CategoryList} />  {/* Muestra todas las categorías */}
         <Route exact path="/categoria/view/:id" component={CategoryByID} />  {/* Muestra de una categoría específica todos los libros */ }

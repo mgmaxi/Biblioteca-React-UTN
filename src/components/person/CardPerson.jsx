@@ -22,7 +22,7 @@ export default function CardPerson({
     await axios.delete('http://localhost:3000/persona/' + IdPersona);
     dispatch({ type: "REMOVER_PERSONA", IdPersonaARemover: IdPersona });
     } catch (error) {
-    setError(error);
+      setError(error.response.data.Mensaje);
     }
 };
 
