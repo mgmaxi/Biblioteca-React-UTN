@@ -8,6 +8,7 @@ import Return from '../others/btn/btnReturn';
 import Delete from '../others/btn/btnDelete';
 import Error from '../others/error/Error';
 import Book from '../others/btn/btnBook';
+import Borrow from '../others/btn/btnBorrow';
 /* Styles */
 import '../styles/cardBook.css';
 /* Services */
@@ -59,11 +60,13 @@ export default function CardBook ({ libro }) {
     return (
             <div key={libro.id}>
                 <li className="listBooks">
-                    <Link to={'/libro/view/' + libro.id}>{libro.nombre}</Link>
-                    <span className="owner">Prestado a: {namePerson}</span>
+                    <h2 className="titleBook"> 
+                    <Link to={'/libro/view/' + libro.id}> {libro.nombre}</Link>
+                    </h2>
+                    <h2 className="subText">Prestado a: <span className="owner">{namePerson}</span></h2>
                     <Error message={error} />
                     <div className="btnGroup">
-                    <Book subTitle="Ver Libro" url={`/libro/borrow/${libro.id}/${libro.nombre}`} /><Edit url={`/libro/modify/${libro.id}/${libro.descripcion}`} /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
+                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Borrow subTitle="Prestar" url={`/libro/borrow/${libro.id}/${libro.nombre}`} /><Edit url={`/libro/modify/${libro.id}/${libro.descripcion}`} /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
                     </div>
                     <Error message={errorReturn} /><Error message={errorDelete} /> 
                 </li>
