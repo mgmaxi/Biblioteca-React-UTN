@@ -8,7 +8,7 @@ export default function Book (props){
         <>
             <Link to={props.url}>
             <div className="btnContainer">
-                <i className="fa fa-book btn" aria-hidden="true"></i>
+                <button onClick={props.onClick}><i className="fa fa-book btn" aria-hidden="true"></i></button>
                 <p className="btnText">{props.subTitle}</p>
             </div>
             </Link>

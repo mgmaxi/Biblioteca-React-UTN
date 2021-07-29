@@ -8,8 +8,8 @@ export default function Edit (props){
         <>
             <Link to={props.url}>
             <div className="btnContainer">
-                <i className="fa fa-book btn" aria-hidden="true"></i>
-                
+                <button onClick={props.onClick}><i className="fa fa-pencil-square-o btn" aria-hidden="true"></i></button>
+                <p>Modificar</p>
             </div>
             </Link>
         </>

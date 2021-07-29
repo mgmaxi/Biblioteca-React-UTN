@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 /* Components */
 import Edit from '../others/btn/btnEdit';
@@ -41,7 +40,7 @@ export default function CardCategory({
           </h2>
 
           <div className="btnGroupCategory">
-                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Link to={`/categoria/modify/${categoria.ID}/${categoria.nombre}`}>modificar</Link> <Delete onClick={() => handleBorrarCategoria(categoria.ID)} />
+                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit url={`/categoria/modify/${categoria.ID}/${categoria.nombre}`} /> <Delete onClick={() => handleBorrarCategoria(categoria.ID)} />
           </div>
           <Error message={error} />
           </div>
