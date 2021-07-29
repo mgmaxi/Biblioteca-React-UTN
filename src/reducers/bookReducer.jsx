@@ -46,10 +46,14 @@ function bookReducer(
 
       case "BORROW_BOOK":
         index = nuevoState.libros.findIndex(
-            (obj) => obj.libro_id === parseInt(action.payload[0])
+            (obj) => obj.libro_id === parseInt(action.payload.id)
           );
-          nuevoState.listado[index].personaid = action.payload[1];
+          nuevoState.listado[index].personaid = action.payload.persona;
           return nuevoState;
+
+          case "ADD_BOOK":
+            nuevoState.listado.push(action.payload);
+            return nuevoState;
 
 
     default:

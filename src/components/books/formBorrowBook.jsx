@@ -9,12 +9,12 @@ import "../styles/newFormBook.css";
 import "../styles/main.css";
 
 function BorrowBook(props) {
-    const {personaid} = useParams();
+    const {id} = useParams();
     const dispatch = useDispatch();
     const personas = useSelector((state) => state.personReducer.personas);
     const [data, setData] = React.useState({
-    personaid:personaid,  
-     
+    
+     persona_id: 0
 
     });
     
@@ -41,9 +41,11 @@ function BorrowBook(props) {
         );
     
         dispatch({
-          type: "PRESTAR_LIBRO",
-          payload: [data.personaid],
-        });
+          type: "BORROW_BOOK",
+          payload: {
+            persona: data.personaid,
+            id: id
+          },  });
       } catch (error) {
         console.log(error.response);
       }
