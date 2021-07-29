@@ -9,6 +9,7 @@ import formNewBook from './components/books/formNewBook';
 import CategoryList from './components/categories/CategoryList';
 import CategoryByID from './components/categories/CategoryByID';
 import formNewCategory from './components/categories/formNewCategory';
+import fomrModifyCategory from './components/categories/formModifyCategory'
 import PersonList from './components/person/PersonList';
 import PersonByID from './components/person/PersonByID';
 import formNewPerson from './components/person/formNewPerson';
@@ -58,7 +59,7 @@ const App = () => {
         <Route exact path="/categoria" component={CategoryList} />  {/* Muestra todas las categorías */}
         <Route exact path="/categoria/view/:id" component={CategoryByID} />  {/* Muestra de una categoría específica todos los libros */ }
         <Route exact path="/categoria/new" component={formNewCategory} />  {/* Agrega una categoria */ }
-        {/*<Route exact path="/categoria/modify" component={} /> */}
+        <Route exact path="/categoria/modify/:id/:nombre" component={fomrModifyCategory} /> 
 
         <Route exact path="/persona" component={PersonList} />  {/* Muestra todas las personas */}
         <Route exact path="/persona/view/:id" component={PersonByID} />  {/* Muestra una persona específica */}

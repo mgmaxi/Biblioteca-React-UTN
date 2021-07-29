@@ -22,6 +22,14 @@ function categoryReducer(
             action.idCategoriaARemover
         );
       return nuevoState;
+    case "MODIFICAR_CATEGORIA":
+      const  index = nuevoState.listado.findIndex(
+        (obj) =>
+          obj.categoria_id ===
+          parseInt(action.payload[0])
+      );
+      nuevoState.categorias[index].nombre = action.payload[1];
+      return nuevoState;
 
     default:
       return state;
