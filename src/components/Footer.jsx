@@ -5,7 +5,8 @@ export default function Footer () {
 
     return (
         <div className="footerContainer">
-            <p>© 2021</p>
+            <div>Diplomatura en programación web full
+stack con React JS - Grupo 9</div>
         </div>
     )
 

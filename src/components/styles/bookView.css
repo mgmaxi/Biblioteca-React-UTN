@@ -47,6 +47,17 @@
         font-size: 1,2rem;
         color: rgb(184, 184, 184);
     }
+
+    .text {
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+    }
+    .subText{
+        color: grey;
+        font-size: 20px;
+        text-align: left;
+      }
+      
    
     .linkBooks {
         margin: 10px;

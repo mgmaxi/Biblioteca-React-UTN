@@ -48,14 +48,16 @@ export default function CardBookByID ({ libro }) {
 
     return (
             <div key={libro.id} className="bookContainer">
-                <h1 className="tittleBook">{libro.nombre}</h1>
-                <h2>Género: {nameCategory}</h2>
-                <Error message={errorCategory} />
-                <h2>Descripción:</h2><p>{libro.descripcion}</p> 
-                <div className="availability">
-                    <span className="owner">Prestado a: {aliasPerson}  </span>
+                <div className="subContent">
+                    <h1 className="tittleBook">{libro.nombre}</h1>
+                    <h2 className="subText">Género: <span className="text">{nameCategory} </span></h2>
+                    <Error message={errorCategory} />
+                    <h2 className="subText">Descripción:</h2><span className="text">{libro.descrispancion}</span> 
+                    <div>
+                        <h2 className="subText">Prestado a: <span className="text"> {aliasPerson} </span> </h2>
+                    </div>
+                    <Error message={errorPerson} />
                 </div>
-                <Error message={errorPerson} />
                 <Logo subTitle="Volver a Libros" url="/libro" />
             </div>
     )
