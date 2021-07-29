@@ -60,7 +60,7 @@ function NewCategory(props) {
           />
           <br />
           <button
-            className="btn btn-primary"
+            className="btn"
             name="send"
             type="submit"
           >

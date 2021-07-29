@@ -90,7 +90,7 @@ function NewBook(props) {
             
           />
           <br />
-          <select class="btn btn-danger dropdown-toggle"
+          <select class="btn"
             name="categoria"
             onChange={handleChangeCategoria}
           >
@@ -103,7 +103,7 @@ function NewBook(props) {
           </select>
           <br />
           <button
-            className="btn btn-primary"
+            className="btn"
             name="send"
             type="submit"
           >

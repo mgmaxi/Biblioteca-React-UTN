@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 /* Styles */
 import './styles/btn.css';
 
-export default function Book (props){
+export default function Borrow (props){
     return (
         <>
             <Link to={props.url}>
             <div className="btnContainer">
-                <button onClick={props.onClick}><i class="fab fa-slideshare"></i></button>
+                <button onClick={props.onClick}><i class="fa fa-share btn" ></i></button>
                 <p className="btnText">{props.subTitle}</p>
             </div>
             </Link>
