@@ -65,14 +65,8 @@ const App = () => {
         <Route exact path="/libro" component={BookList} /> {/* Muestra todos los libros */}
         <Route exact path="/libro/view/:id" component={BookByID} /> {/* Muestra un libro específico */}
         <Route exact path="/libro/new" component={formNewBook} />  {/* Agrega un libro */ }
-<<<<<<< Updated upstream
-        {/*<Route exact path="/libro/modify" component={} /> */}
-        <Route exact path="/libro/lend/:id" component={FormLendBook} /> {/* Prestar libro */}
-
-=======
         <Route exact path="/libro/modify/:id/:nombre" component={formModifyBook} /> {/* Modificar libro un libro en especifico  */ }
         <Route exact path="/libro/borrow/:id/:nombre" component={formBorrowBook} />
->>>>>>> Stashed changes
         <Route exact path="/categoria" component={CategoryList} />  {/* Muestra todas las categorías */}
         <Route exact path="/categoria/view/:id" component={CategoryByID} />  {/* Muestra de una categoría específica todos los libros */ }
         <Route exact path="/categoria/new" component={formNewCategory} />  {/* Agrega una categoria */ }

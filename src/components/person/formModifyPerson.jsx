@@ -46,7 +46,7 @@ const enviarFormulario = async () => {
     
     try {
       await axios.put(  `http://localhost:3000/persona/${id}`, datos);
-      dispatch({ type: "MODIFICAR_PERSONA", payload: [parseInt(id), datos] });
+      dispatch({ type: "MODIFY_PERSON", payload: [parseInt(id), datos] });
      
     } catch (error) {
       console.log(error)

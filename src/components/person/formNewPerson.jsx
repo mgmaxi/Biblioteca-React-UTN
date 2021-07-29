@@ -56,7 +56,7 @@ function NewPerson(props) {
       );
 
       dispatch({
-        type: "AGREGAR_PERSONA",
+        type: "ADD_PERSON",
         payload: response.data,
       });
     } catch (error) {

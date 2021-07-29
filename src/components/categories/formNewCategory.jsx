@@ -31,7 +31,7 @@ function NewCategory(props) {
     );
 
     dispatch({
-      type: "AGREGAR_CATEGORIA",
+      type: "ADD_CATEGORY",
       payload: response.data,
     });
   } catch (error) {
