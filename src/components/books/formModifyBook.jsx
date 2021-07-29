@@ -8,27 +8,27 @@ import "../styles/main.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-function Modify(props) {
-  const { id, nombre } = useParams();
+function ModifyBook(props) {
+  const { id, descripcion } = useParams();
 
   const dispatch = useDispatch();
 
   const [datos, setData] = useState({
     ID: id,
-    nombre: nombre,
+    descripcion: descripcion,
   });
 
-  const handleNombre = (e) => {
+  const handleDescripcion = (e) => {
     const nuevoState = JSON.parse(JSON.stringify(datos));
-    nuevoState.nombre = e.target.value;
+    nuevoState.descripcion = e.target.value;
     setData(nuevoState);
   };
 
 const enviarFormulario = async () => {
     
     try {
-      await axios.put(  `http://localhost:3000/categoria/${id}`, datos);
-      dispatch({ type: "MODIFICAR_CATEGORIA", payload: [parseInt(id), datos.nombre] });
+      await axios.put(  `http://localhost:3000/libro/${id}`, datos);
+      dispatch({ type: "MODIFICAR_LIBRO", payload: [parseInt(id), datos.descripcion] });
      
     } catch (error) {
       console.log(error)
@@ -40,21 +40,21 @@ const enviarFormulario = async () => {
       <Nav />
       <div className="mainContainer">
         <form
-          className="formContainerCategory"
+          className="formContainerBook"
           onSubmit={enviarFormulario}
         >
           <h1 className="formName">
-            Editar Categoria
+            Editar Descripcion Del Libro
           </h1>
-          <label htmlFor="nombre">Nombre</label>
+          <label htmlFor="descripcion">Descripcion</label>
           <input
             required
-            value={datos.nombre}
-            onChange={handleNombre}
-            name="nombre"
-            id="nombre"
+            value={datos.descripcion}
+            onChange={handleDescripcion}
+            name="descripcion"
+            id="descripcion"
             type="text"
-            className="smallInputTextCategory"
+            className="bigInputTextBook"
           />
           <br />
           <button
@@ -71,6 +71,4 @@ const enviarFormulario = async () => {
   );
 }
 
-
-
-export default Modify;
+export default ModifyBook;

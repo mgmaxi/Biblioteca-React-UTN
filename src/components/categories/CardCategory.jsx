@@ -19,7 +19,7 @@ export default function CardCategory({
   const handleBorrarCategoria = async (idCategoria) => {
     try {
     await axios.delete('http://localhost:3000/categoria/' + idCategoria);
-    dispatch({ type: "REMOVER_CATEGORIA", idCategoriaARemover: idCategoria });
+    dispatch({ type: "ELIMINAR_CATEGORIA", idCategoriaARemover: idCategoria });
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

@@ -63,7 +63,7 @@ export default function CardBook ({ libro }) {
                     <span className="owner">Prestado a: {namePerson}</span>
                     <Error message={error} />
                     <div className="btnGroup">
-                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Edit /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
+                    <Book subTitle="Ver Libro" url={`/libro/borrow/${libro.id}/${libro.nombre}`} /><Edit url={`/libro/modify/${libro.id}/${libro.descripcion}`} /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
                     </div>
                     <Error message={errorReturn} /><Error message={errorDelete} /> 
                 </li>

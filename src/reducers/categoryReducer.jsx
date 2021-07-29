@@ -10,11 +10,12 @@ function categoryReducer(
   const nuevoState = JSON.parse(
     JSON.stringify(state)
   );
+  
   switch (action.type) {
     case "AGREGAR_LISTADO_CATEGORIAS":
       nuevoState.categorias = action.listado;
       return nuevoState;
-    case "REMOVER_CATEGORIA":
+    case "ELIMINAR_CATEGORIA":
       nuevoState.categorias =
         nuevoState.categorias.filter(
           (unaCategoria) =>

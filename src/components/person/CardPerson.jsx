@@ -20,7 +20,7 @@ export default function CardPerson({
   const handleBorrarPersona = async (IdPersona) => {
     try {
     await axios.delete('http://localhost:3000/persona/' + IdPersona);
-    dispatch({ type: "REMOVER_PERSONA", IdPersonaARemover: IdPersona });
+    dispatch({ type: "ELIMINAR_PERSONA", IdPersonaARemover: IdPersona });
     } catch (error) {
       setError(error.response.data.Mensaje);
     }
@@ -57,7 +57,7 @@ export default function CardPerson({
 
           <div className="btnGroupPerson">
             <Book subTitle="Libros que posee" url={'/persona/view/' + persona.ID} />
-            <Edit />
+            <Edit url={`/persona/modify/${persona.ID}/${persona.nombre}/${persona.apellido}/${persona.email}/${persona.alias}`}/>
             <Delete onClick={() => handleBorrarPersona(persona.ID)} />
           </div>
           <Error message={error} />
