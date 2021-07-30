@@ -47,8 +47,8 @@ function NewPerson(props) {
     nuevoState.alias = e.target.value;
     setDatos(nuevoState);
   };
-  const enviarFormulario = async () => {
-    
+  const enviarFormulario = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:3000/persona",
@@ -59,6 +59,8 @@ function NewPerson(props) {
         type: "ADD_PERSON",
         payload: response.data,
       });
+      props.history.push({
+        pathname:"/persona"});
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

@@ -41,8 +41,8 @@ function NewBook(props) {
     nuevoState.categoriaid = e.target.value;
     setDatos(nuevoState);
   };
-  const enviarFormulario = async () => {
-    //e.preventDefault();
+  const enviarFormulario = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:3000/libro",
@@ -53,6 +53,7 @@ function NewBook(props) {
         type: "ADD_BOOK",
         payload: response.data,
       });
+      props.history.push('/libro');
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

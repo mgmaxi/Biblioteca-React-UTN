@@ -22,8 +22,8 @@ function NewCategory(props) {
     setDatos(nuevoState);
   };
 
-  const enviarFormulario = async () => {
-    
+  const enviarFormulario = async (e) => {
+    e.preventDefault();
   try {
     const response = await axios.post(
       "http://localhost:3000/categoria",
@@ -34,6 +34,8 @@ function NewCategory(props) {
       type: "ADD_CATEGORY",
       payload: response.data,
     });
+    props.history.push({
+      pathname:"/categoria"});
   } catch (error) {
     setError(error.response.data.Mensaje);
   }

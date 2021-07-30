@@ -30,6 +30,10 @@ function personaReducer(
       );
       nuevoState.personas[index] = action.payload[0];
       return nuevoState;
+      
+      case "ADD_PERSON":
+            nuevoState.personas.push(action.payload);
+            return nuevoState;
 
     default:
       return state;

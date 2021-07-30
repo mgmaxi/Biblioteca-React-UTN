@@ -34,7 +34,7 @@ function bookReducer(
       return nuevoState;
       
     case "MODIFY_BOOK":
-       index = nuevoState.libros.findIndex(
+       nuevoState.libros.filter(
         (obj) =>
           obj.libro_id ===
           parseInt(action.payload[0])
@@ -52,7 +52,7 @@ function bookReducer(
           return nuevoState;
 
           case "ADD_BOOK":
-            nuevoState.listado.push(action.payload);
+            nuevoState.libros.push(action.payload);
             return nuevoState;
 
 

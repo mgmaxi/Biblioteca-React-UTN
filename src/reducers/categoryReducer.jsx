@@ -31,7 +31,9 @@ function categoryReducer(
       );
       nuevoState.categorias[index].nombre = action.payload[1];
       return nuevoState;
-
+      case "ADD_CATEGORY":
+        nuevoState.categorias.push(action.payload);
+        return nuevoState;
     default:
       return state;
   }
