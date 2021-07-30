@@ -27,7 +27,7 @@ function NewBook(props) {
       errores.nombre = 'El nombre no puede estar en blanco';
     }
 
-    if (nombre.length < 2 && nombre.length != 0) {
+    if (nombre.length < 2 && nombre.length !== 0) {
       errores.nombre = 'El nombre debe tener 2 caracteres como mínimo';
     }
     if (nombre.length > 50) {
