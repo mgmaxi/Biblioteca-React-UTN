@@ -15,13 +15,15 @@ function BorrowBook(props) {
     const {id, nombre} = useParams();
     const dispatch = useDispatch();
     const personas = useSelector((state) => state.personReducer.personas);
+    console.log(personas)
     const [error, setError] = React.useState([]); 
     const [data, setData] = React.useState({
    
-personaid: personaid
+personaid: null,
     });
     
     const handlePrestarLibro = ({target}) => {
+      console.log(target.value) 
       const nuevoState = JSON.parse(
         JSON.stringify(data)
       );
@@ -78,7 +80,8 @@ return (
           >
             <option>Seleccione una persona</option>
             {personas.map((unaPersona) => (
-              <option key={unaPersona.ID}>
+              <option key={unaPersona.ID}> 
+              {unaPersona.ID}
                 {unaPersona.nombre}
               </option>
             ))}
