@@ -33,7 +33,7 @@ const enviarFormulario = async (e) => {
       props.history.push({
         pathname:`/libro`});
     } catch (error) {
-      console.log(error)
+      setError(error.response.data.Mensaje);
   }
 }
 
