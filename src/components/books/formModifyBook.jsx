@@ -19,22 +19,18 @@ function ModifyBook(props) {
     ID: id,
     descripcion: descripcion,
   });
-  const validar = (descripcion) => {
+   const validar = (desc) => {
     const errores = {};
     const nombresValidos = /^[a-zA-Z0-9ÑñÁáÉéÍíÓóÚú\s]+$/;
 
-    if (descripcion.length < 5 && descripcion.length !== 0) {
-      errores.descripcion = 'El nombre debe tener 5 caracteres como mínimo';
+    if (desc && desc.length < 50 && desc.length !== 0) {
+      errores.desc = 'La descripcion debe tener 50 caracteres como minimo';
     }
-
-    if (descripcion.length < 50 && descripcion.length !== 0) {
-      errores.descripcion = 'La descripcion debe tener 50 caracteres como minimo';
+    if (desc && desc.length > 150) {
+      errores.desc = 'La descripcion no puede contener mas de 150 caracteres';
     }
-    if (descripcion.length > 150) {
-      errores.descripcion = 'La descripcion no puede contener mas de 150 caracteres';
-    }
-    if (descripcion && !nombresValidos.exec(descripcion)) {
-      errores.descripcion = 'La descripcion solo puede contener letras, números y espacios';
+    if (desc && !nombresValidos.exec(desc)) {
+      errores.desc = 'La descripcion solo puede contener letras, números y espacios';
     }
     return errores;
   }
@@ -83,7 +79,7 @@ const enviarFormulario = async (e) => {
             type="text"
             className="bigInputTextBook"
           />
-          <p className="error">{errorfront.descripcion}</p>
+          <p className="error">{errorfront.desc}</p>
           <br />
           <button
             className="btn btn-primary"
