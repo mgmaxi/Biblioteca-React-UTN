@@ -147,6 +147,7 @@ function NewBook(props) {
           <button
             className="btn"
             name="send" id="send"
+            disabled={errorfront.nombre || errorfront.descripcion || errorfront.categoria}
             type="submit"
           >
             Agregar
