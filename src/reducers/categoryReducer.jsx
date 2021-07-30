@@ -30,7 +30,6 @@ function categoryReducer(
           parseInt(action.payload[0])
       );
       nuevoState.categorias[index].nombre = action.payload[1];
-      console.log(nuevoState.categorias)
       return nuevoState;
       
       case "ADD_CATEGORY":

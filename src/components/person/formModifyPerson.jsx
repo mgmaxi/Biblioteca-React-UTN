@@ -42,12 +42,13 @@ function ModifyPerson(props) {
     setData(nuevoState);
   };
 
-const enviarFormulario = async () => {
-    
+const enviarFormulario = async (e) => {
+  e.preventDefault();
     try {
       await axios.put(  `http://localhost:3000/persona/${id}`, datos);
       dispatch({ type: "MODIFY_PERSON", payload: [parseInt(id), datos] });
-     
+      props.history.push({
+        pathname:`/persona`});
     } catch (error) {
       console.log(error)
   }

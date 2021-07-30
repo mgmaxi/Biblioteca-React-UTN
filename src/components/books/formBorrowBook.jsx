@@ -18,7 +18,7 @@ function BorrowBook(props) {
     const [error, setError] = React.useState([]); 
     const [data, setData] = React.useState({
    
-personaid: 0
+personaid: id,
     });
     
     const handlePrestarLibro = ({target}) => {
@@ -29,8 +29,8 @@ personaid: 0
       setData(nuevoState);
     };
   
-    const enviarFormulario = async () => {
-      
+    const enviarFormulario = async (e) => {
+      e.preventDefault();
       try {
         
         await axios.put(
@@ -44,6 +44,7 @@ personaid: 0
             id: id,
             persona: data.personaid,
           },  });
+          props.history.push('/libro');
       } catch (error) {
         setError(error.response.data.Mensaje);
     }

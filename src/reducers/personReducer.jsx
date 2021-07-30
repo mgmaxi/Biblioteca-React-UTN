@@ -3,6 +3,7 @@
 const estadoInicial = {
   personas: [],
 };
+let index = 0;
 function personaReducer(
   state = estadoInicial,
   action
@@ -23,13 +24,14 @@ function personaReducer(
         );
       return nuevoState;
       case "MODIFY_PERSON":
-      const  index = nuevoState.listado.findIndex(
-        (obj) =>
-          obj.categoria_id ===
-          parseInt(action.payload[0])
-      );
-      nuevoState.personas[index] = action.payload[0];
-      return nuevoState;
+        nuevoState.personas.findIndex(
+          (obj) => obj.persona_id === action.payload[0].persona_id
+        );
+         nuevoState.personas[index] = action.payload[1];
+         return nuevoState;
+      
+      
+      
       
       case "ADD_PERSON":
             nuevoState.personas.push(action.payload);
