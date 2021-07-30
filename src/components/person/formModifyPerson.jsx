@@ -174,6 +174,7 @@ return (
             className="btn btn-primary"
             name="send"
             type="submit"
+            disabled={errorfront.nombre || errorfront.apellido || errorfront.email || errorfront.alias}
           >
             Modificar
           </button>

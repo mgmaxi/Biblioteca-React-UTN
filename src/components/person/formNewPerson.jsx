@@ -189,6 +189,7 @@ function NewPerson(props) {
             className="btn"
             name="send"
             type="submit"
+            disabled={errorfront.nombre || errorfront.apellido || errorfront.email || errorfront.alias}
           >
             Enviar
           </button>
