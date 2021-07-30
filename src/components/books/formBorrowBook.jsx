@@ -18,7 +18,7 @@ function BorrowBook(props) {
     const [error, setError] = React.useState([]); 
     const [data, setData] = React.useState({
    
-personaid: id,
+personaid: personaid
     });
     
     const handlePrestarLibro = ({target}) => {
@@ -41,8 +41,8 @@ personaid: id,
         dispatch({
           type: "BORROW_BOOK",
           payload: {
+            persona: data.persona_id,
             id: id,
-            persona: data.personaid,
           },  });
           props.history.push('/libro');
       } catch (error) {

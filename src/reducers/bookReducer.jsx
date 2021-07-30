@@ -48,7 +48,7 @@ function bookReducer(
         index = nuevoState.libros.findIndex(
             (obj) => obj.libro_id === parseInt(action.payload.id)
           );
-          nuevoState.listado[index].personaid=parseInt(action.payload.persona);
+          nuevoState.listado[index].persona_id=parseInt(action.payload.persona);
           return nuevoState;
 
           case "ADD_BOOK":
