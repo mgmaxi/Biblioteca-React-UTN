@@ -2,9 +2,11 @@
 import { useDispatch } from "react-redux";
 import React from "react";
 import axios from "axios";
+/* Components */
 import Nav from "../Nav";
 import Footer from "../Footer";
 import Error from '../others/error/Error';
+/* Styles */
 import "../styles/newFormCategory.css";
 import "../styles/main.css";
 
