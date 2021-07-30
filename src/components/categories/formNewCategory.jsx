@@ -97,6 +97,7 @@ function NewCategory(props) {
           <button
             className="btn"
             name="send"
+            disabled={errorfront.nombre}
             type="submit"
           >
             Agregar

@@ -91,6 +91,7 @@ const enviarFormulario = async (e) => {
           <button
             className="btn btn-primary"
             name="send"
+            disabled={errorfront.nombre}
             type="submit"
           >
             Modificar
