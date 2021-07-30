@@ -10,7 +10,7 @@ function categoryReducer(
   const nuevoState = JSON.parse(
     JSON.stringify(state)
   );
-  
+  let index = 0;
   switch (action.type) {
     case "ADD_CATEGORY_LIST":
       nuevoState.categorias = action.listado;
@@ -24,13 +24,15 @@ function categoryReducer(
         );
       return nuevoState;
     case "MODIFY_CATEGORY":
-      const  index = nuevoState.listado.findIndex(
+      nuevoState.categorias.findIndex(
         (obj) =>
           obj.categoria_id ===
           parseInt(action.payload[0])
       );
       nuevoState.categorias[index].nombre = action.payload[1];
+      console.log(nuevoState.categorias)
       return nuevoState;
+      
       case "ADD_CATEGORY":
         nuevoState.categorias.push(action.payload);
         return nuevoState;

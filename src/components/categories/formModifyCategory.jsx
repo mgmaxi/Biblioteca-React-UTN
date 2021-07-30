@@ -26,8 +26,8 @@ function Modify(props) {
     setData(nuevoState);
   };
 
-const enviarFormulario = async () => {
-    
+const enviarFormulario = async (e) => {
+  e.preventDefault();
     try {
       await axios.put(  `http://localhost:3000/categoria/${id}`, datos);
       dispatch({ type: "MODIFY_CATEGORY", payload: [parseInt(id), datos.nombre] });

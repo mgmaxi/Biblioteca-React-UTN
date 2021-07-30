@@ -24,12 +24,13 @@ function ModifyBook(props) {
     setData(nuevoState);
   };
 
-const enviarFormulario = async () => {
-    
+const enviarFormulario = async (e) => {
+  e.preventDefault();
     try {
       await axios.put(  `http://localhost:3000/libro/${id}`, data);
       dispatch({ type: "MODIFY_BOOK", payload: [parseInt(id), data.descripcion] });
-     
+      props.history.push({
+        pathname:`/libro`});
     } catch (error) {
       console.log(error)
   }
