@@ -10,10 +10,35 @@ import "../styles/main.css";
 
 function NewCategory(props) {
   const dispatch = useDispatch();
+  const [errorfront, setErrorfront] = React.useState({});
   const [error, setError] = React.useState([]); 
   const [datos, setDatos] = React.useState({
     nombre: "",
   });
+
+  const validar = (nombre) => {
+    const errores = {};
+    const nombresValidos = /^[a-zA-Z0-9ÑñÁáÉéÍíÓóÚú\s]+$/;
+
+    if (nombre.length === 0) {
+      errores.nombre = 'El nombre no puede estar en blanco';
+    }
+
+    if (nombre.length < 5 && nombre.length !== 0) {
+      errores.nombre = 'El nombre debe tener 5 caracteres como mínimo';
+    }
+    if (nombre.length > 50) {
+      errores.nombre = 'El nombre no puede contener mas de 50 caracteres';
+    }
+    if (nombre && !nombresValidos.exec(nombre)) {
+      errores.nombre = 'El nombre solo puede contener letras, números y espacios';
+    }
+    
+    return errores;
+
+  }
+
+
   const handleChangeNombre = (e) => {
     const nuevoState = JSON.parse(
       JSON.stringify(datos)
@@ -21,6 +46,11 @@ function NewCategory(props) {
     nuevoState.nombre = e.target.value;
     setDatos(nuevoState);
   };
+
+  React.useEffect(() => {
+    const validacion = validar(datos.nombre);
+    setErrorfront(validacion);
+  }, [datos]);
 
   const enviarFormulario = async (e) => {
     e.preventDefault();
@@ -60,6 +90,7 @@ function NewCategory(props) {
             type="text"
             className="smallInputTextCategory"
           />
+          <p className="error">{errorfront.nombre}</p>
           <br />
           <button
             className="btn"

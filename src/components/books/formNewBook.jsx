@@ -27,7 +27,7 @@ function NewBook(props) {
       errores.nombre = 'El nombre no puede estar en blanco';
     }
 
-    if (nombre.length < 2 && nombre.length != 0) {
+    if (nombre.length < 2 && nombre.length !== 0) {
       errores.nombre = 'El nombre debe tener 2 caracteres como mínimo';
     }
     if (nombre.length > 50) {
@@ -42,9 +42,9 @@ function NewBook(props) {
     if (descripcion && !nombresValidos.exec(descripcion)) {
       errores.descripcion = 'La descripción solo puede contener letras, números y espacios';
     }
-    if (categoriaid === NULL) {
+    /* if (categoriaid === NULL) {
       errores.categoriaid = 'Debes elegir una categoría';
-    }
+    } */
     return errores;
 
   }
