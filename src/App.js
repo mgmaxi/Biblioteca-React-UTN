@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+/* Form */
+import Form from './components/books/form/Form';
 
 import './App.css';
 /* Components book */
@@ -59,7 +61,10 @@ const App = () => {
       <Error message={error} />
       <Router>
         <Switch>
-        <Route exact path="/" component={Home} /> 
+        <Route exact path="/" component={Home} />
+
+        <Route exact path="/form" component={Form} />
+
 
         <Route exact path="/libro" component={BookList} /> {/* Muestra todos los libros */}
         <Route exact path="/libro/view/:id" component={BookByID} /> {/* Muestra un libro específico */}
