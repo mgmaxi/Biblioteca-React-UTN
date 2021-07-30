@@ -11,12 +11,43 @@ import "../styles/main.css";
 function NewBook(props) {
   const dispatch = useDispatch();
   const categorias = useSelector((state) => state.categoryReducer.categorias);
+  const [errorfront, setErrorfront] = React.useState({});
   const [error, setError] = React.useState([]); 
   const [datos, setDatos] = React.useState({
     nombre: "",
     descripcion: "",
     categoriaid: "",
   });
+
+  const validar = (nombre, descripcion, categoriaid) => {
+    const errores = {};
+    const nombresValidos = /^[a-zA-Z0-9ÑñÁáÉéÍíÓóÚú\s]+$/;
+
+    if (nombre.length === 0) {
+      errores.nombre = 'El nombre no puede estar en blanco';
+    }
+
+    if (nombre.length < 2 && nombre.length != 0) {
+      errores.nombre = 'El nombre debe tener 2 caracteres como mínimo';
+    }
+    if (nombre.length > 50) {
+      errores.nombre = 'El nombre no puede contener mas de 50 caracteres';
+    }
+    if (nombre && !nombresValidos.exec(nombre)) {
+      errores.nombre = 'El nombre solo puede contener letras, números y espacios';
+    }
+    if(descripcion.length > 50) {
+      errores.descripcion = 'La descripción no puede tener más de 50 caracteres';
+    }
+    if (descripcion && !nombresValidos.exec(descripcion)) {
+      errores.descripcion = 'La descripción solo puede contener letras, números y espacios';
+    }
+    if (categoriaid === NULL) {
+      errores.categoriaid = 'Debes elegir una categoría';
+    }
+    return errores;
+
+  }
 
   const handleChangeNombre = (e) => {
     const nuevoState = JSON.parse(
@@ -41,6 +72,11 @@ function NewBook(props) {
     nuevoState.categoriaid = e.target.value;
     setDatos(nuevoState);
   };
+  React.useEffect(() => {
+    const validacion = validar(datos.nombre, datos.descripcion, datos.categoria);
+    setErrorfront(validacion);
+  }, [datos]);
+
   const enviarFormulario = async (e) => {
     e.preventDefault();
     try {
@@ -78,6 +114,7 @@ function NewBook(props) {
             type="text"
             className="smallInputTextBook"
           />
+                      <p className="error">{errorfront.nombre}</p>
           <br />
           <label htmlFor="descripcion">
             Descripcion
@@ -90,26 +127,30 @@ function NewBook(props) {
             className="bigInputTextBook"
             
           />
+                                <p className="error">{errorfront.descripcion}</p>
           <br />
           <select class="btn"
             name="categoria"
             onChange={handleChangeCategoria}
           >
-            <option>Seleccione un género</option>
+            <option value="NULL">Seleccione un género</option>
             {categorias.map((unaCategoria) => (
               <option value={unaCategoria.ID}>
                 {unaCategoria.nombre}
               </option>
             ))}
           </select>
+          <p className="error">{errorfront.categoria}</p>
           <br />
+          
           <button
             className="btn"
-            name="send"
+            name="send" id="send"
             type="submit"
           >
             Agregar
           </button>
+          
           <Error message={error} />
         </form>
       </div>
