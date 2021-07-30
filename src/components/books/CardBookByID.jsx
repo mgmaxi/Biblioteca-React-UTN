@@ -52,7 +52,7 @@ export default function CardBookByID ({ libro }) {
                     <h1 className="tittleBook">{libro.nombre}</h1>
                     <h2 className="subText">Género: <span className="text">{nameCategory} </span></h2>
                     <Error message={errorCategory} />
-                    <h2 className="subText">Descripción:</h2><span className="text">{libro.descrispancion}</span> 
+                    <h2 className="subText">Descripción:</h2><span className="text">{libro.descripcion}</span> 
                     <div>
                         <h2 className="subText">Prestado a: <span className="text"> {aliasPerson} </span> </h2>
                     </div>
