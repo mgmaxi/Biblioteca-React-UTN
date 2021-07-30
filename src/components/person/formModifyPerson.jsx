@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams} from "react-router-dom";
-
+import axios from "axios";
+/* Components */
 import Nav from "../Nav";
 import Footer from "../Footer";
+import Error from '../others/error/Error';
+/* Styles */
 import "../styles/newFormCategory.css";
 import "../styles/main.css";
-import axios from "axios";
-import { useDispatch } from "react-redux";
 
 function ModifyPerson(props) {
   const { id, nombre, apellido, email, alias } = useParams();
-
+  const [error, setError] = useState([]); 
   const dispatch = useDispatch();
 
   const [datos, setData] = useState({
@@ -50,7 +52,7 @@ const enviarFormulario = async (e) => {
       props.history.push({
         pathname:`/persona`});
     } catch (error) {
-      console.log(error)
+      setError(error.response.data.Mensaje);
   }
 }
 
@@ -118,6 +120,7 @@ return (
           >
             Modificar
           </button>
+          <Error message={error} />
         </form>
       </div>
       <Footer />

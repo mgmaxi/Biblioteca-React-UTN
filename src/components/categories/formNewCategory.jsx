@@ -1,6 +1,6 @@
 /** @format */
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import React from "react";
 import axios from "axios";
 /* Components */
 import Nav from "../Nav";
@@ -12,9 +12,9 @@ import "../styles/main.css";
 
 function NewCategory(props) {
   const dispatch = useDispatch();
-  const [errorfront, setErrorfront] = React.useState({});
-  const [error, setError] = React.useState([]); 
-  const [datos, setDatos] = React.useState({
+  const [errorfront, setErrorfront] = useState({});
+  const [error, setError] = useState([]); 
+  const [datos, setDatos] = useState({
     nombre: "",
   });
 

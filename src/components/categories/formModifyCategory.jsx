@@ -12,8 +12,8 @@ import "../styles/main.css";
 
 function Modify(props) {
   const { id, nombre } = useParams();
-  const [errorfront, setErrorfront] = React.useState({});
-  const [error, setError] = React.useState([]); 
+  const [errorfront, setErrorfront] = useState({});
+  const [error, setError] = useState([]); 
   const dispatch = useDispatch();
   const [datos, setData] = useState({
     ID: id,

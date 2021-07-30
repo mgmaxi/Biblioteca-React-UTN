@@ -1,18 +1,20 @@
 /** @format */
-import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import axios from "axios";
+/* Components */
 import Nav from "../Nav";
 import Footer from "../Footer";
 import Error from '../others/error/Error';
+/* Styles */
 import "../styles/newFormPerson.css";
 import "../styles/main.css";
 
 function NewPerson(props) {
   const dispatch = useDispatch();
-  const [errorfront, setErrorfront] = React.useState({});
-  const [error, setError] = React.useState([]); 
-  const [datos, setDatos] = React.useState({
+  const [errorfront, setErrorfront] = useState({});
+  const [error, setError] = useState([]); 
+  const [datos, setDatos] = useState({
     nombre: "",
     apellido: "",
     email: "",

@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useParams} from "react-router-dom";
-import axios from "axios";
-/* Components */
+
 import Nav from "../Nav";
 import Footer from "../Footer";
-import Error from '../others/error/Error';
-/* Styles */
 import "../styles/newFormCategory.css";
 import "../styles/main.css";
-
+import axios from "axios";
+import { useDispatch } from "react-redux";
 
 function ModifyBook(props) {
   const { id, descripcion } = useParams();
-  const [error, setError] = React.useState([]); 
+
   const dispatch = useDispatch();
 
   const [data, setData] = useState({
@@ -68,7 +65,6 @@ const enviarFormulario = async (e) => {
           >
             Modificar
           </button>
-          <Error message={error} />
         </form>
       </div>
       <Footer />
