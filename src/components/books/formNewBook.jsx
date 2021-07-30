@@ -89,7 +89,8 @@ function NewBook(props) {
         type: "ADD_BOOK",
         payload: response.data,
       });
-      props.history.push('/libro');
+      props.history.push({
+        pathname:(`/libro`), listo:'agregaste un nuevo libro!'});
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

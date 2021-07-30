@@ -59,7 +59,7 @@ const enviarFormulario = async (e) => {
       await axios.put(  `http://localhost:3000/categoria/${id}`, datos);
       dispatch({ type: "MODIFY_CATEGORY", payload: [parseInt(id), datos.nombre] });
       props.history.push({
-        pathname:`/categoria`});
+        pathname:`/categoria`, listo: 'modificaste la categoria'});
     } catch (error) {
       setError(error.response.data.Mensaje);
   }

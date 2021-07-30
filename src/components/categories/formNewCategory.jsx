@@ -67,7 +67,7 @@ function NewCategory(props) {
       payload: response.data,
     });
     props.history.push({
-      pathname:"/categoria"});
+      pathname:"/categoria", listo:'agregaste una categoria'});
   } catch (error) {
     setError(error.response.data.Mensaje);
   }

@@ -125,7 +125,7 @@ function NewPerson(props) {
         payload: response.data,
       });
       props.history.push({
-        pathname:"/persona"});
+        pathname:"/persona",listo:'agregaste una persona'});
     } catch (error) {
       setError(error.response.data.Mensaje);
     }

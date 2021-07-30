@@ -30,6 +30,7 @@ personaid: null,
       nuevoState.personaid = target.value;
       setData(nuevoState);
     };
+    
   
     const enviarFormulario = async (e) => {
       e.preventDefault();
@@ -46,7 +47,7 @@ personaid: null,
             persona: data.persona_id,
             id: id,
           },  });
-          props.history.push('/libro');
+          props.history.push({pathname:`/libro`, listo: 'prestaste el libro'});
       } catch (error) {
         setError(error.response.data.Mensaje);
     }
