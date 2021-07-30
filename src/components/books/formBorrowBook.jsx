@@ -3,8 +3,11 @@ import React from "react";
 import { useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+/* Components */
 import Nav from "../Nav";
 import Footer from "../Footer";
+import Error from '../others/error/Error';
+/* Styles */
 import "../styles/newFormBook.css";
 import "../styles/main.css";
 
@@ -12,6 +15,7 @@ function BorrowBook(props) {
     const {id, nombre} = useParams();
     const dispatch = useDispatch();
     const personas = useSelector((state) => state.personReducer.personas);
+    const [error, setError] = React.useState([]); 
     const [data, setData] = React.useState({
    
 personaid: 0
@@ -41,8 +45,8 @@ personaid: 0
             persona: data.personaid,
           },  });
       } catch (error) {
-        console.log(error.response.data);
-      }
+        setError(error.response.data.Mensaje);
+    }
     }  
 
 return (
@@ -86,6 +90,7 @@ return (
           >
             Prestar
           </button>
+          <Error message={error} />
         </form>
       </div>
       <Footer />
