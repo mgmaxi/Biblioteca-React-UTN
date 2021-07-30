@@ -19,7 +19,7 @@ function NewBook(props) {
     categoriaid: "",
   });
 
-  const validar = (nombre, descripcion, categoriaid) => {
+  const validar = (nombre, descripcion, categoria) => {
     const errores = {};
     const nombresValidos = /^[a-zA-Z0-9ÑñÁáÉéÍíÓóÚú\s]+$/;
 
@@ -42,8 +42,8 @@ function NewBook(props) {
     if (descripcion && !nombresValidos.exec(descripcion)) {
       errores.descripcion = 'La descripción solo puede contener letras, números y espacios';
     }
-    if (categoriaid === NULL) {
-      errores.categoriaid = 'Debes elegir una categoría';
+    if (categoria.length === 0) {
+      errores.categoria = 'Debes elegir una categoría';
     }
     return errores;
 
@@ -73,7 +73,7 @@ function NewBook(props) {
     setDatos(nuevoState);
   };
   React.useEffect(() => {
-    const validacion = validar(datos.nombre, datos.descripcion, datos.categoria);
+    const validacion = validar(datos.nombre, datos.descripcion, datos.categoriaid);
     setErrorfront(validacion);
   }, [datos]);
 
@@ -133,7 +133,7 @@ function NewBook(props) {
             name="categoria"
             onChange={handleChangeCategoria}
           >
-            <option value="NULL">Seleccione un género</option>
+            <option value="">Seleccione un género</option>
             {categorias.map((unaCategoria) => (
               <option value={unaCategoria.ID}>
                 {unaCategoria.nombre}
