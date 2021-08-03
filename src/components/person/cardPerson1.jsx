@@ -7,7 +7,7 @@ import Delete from "../others/btn/btnDelete";
 import Book from '../others/btn/btnBook';
 import Error from '../others/error/Error';
 /* Styles */
-
+import "../styles/cardPerson.css";
 
 export default function CardPerson({
   persona,
@@ -27,16 +27,15 @@ export default function CardPerson({
 };
 
   return (
-<div class="card" styles="width: 3rem;">
-  <div class="card-header text-dark">
-    ID:&nbsp;{persona.ID}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{persona.nombre}&nbsp;{persona.apellido}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{persona.email}</h6>
+    <p class="card-text">{persona.alias}</p>
+    <Book subTitle="Libros que posee" url={'/persona/view/' + persona.ID} />
+            <Edit url={`/persona/modify/${persona.ID}/${persona.nombre}/${persona.apellido}/${persona.email}/${persona.alias}`}/>
+            <Delete onClick={() => handleBorrarPersona(persona.ID)} />
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{persona.nombre}&nbsp;{persona.apellido}</li>
-    <li class="list-group-item">{persona.email}</li>
-    <li class="list-group-item">{persona.alias}</li>
-  </ul>
 </div>
  );
 }
- 

@@ -1,52 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styles/nav.css' 
 import Logo from './others/logo/logo';
 
 export default function Nav () {
     return (
-        <div>
-            <nav className="navbarContainer">
-                    <div className="navbarLogoContainer">
-                        <Logo url="/" subTitle="Where Are My Books?" />
-                    </div>
-                    <div className="navbarLinks">
-                        <ul>
-                            <li className="hide"><Link to="/">INICIO</Link></li>
-                            <li className="dropdown">
-                                <Link to="/libro" className="dropbtn">LIBROS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/libro">Todos los libros</Link>
-                                    <Link to="/libro/new">Agregar un libro</Link>
-                                </div>
-                            </li>
-                            <li className="dropdown">
-                                <Link to="/categoria" className="dropbtn">CATEGORIAS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/categoria">Todas las categorias</Link>
-                                    <Link to="/categoria/new">Agregar una categoria</Link>
-                                </div>
-                            </li>
-                            <li className="dropdown">
-                                <Link to="/persona" className="dropbtn">PERSONAS</Link>
-                                <div className="dropdown-content">
-                                    <Link to="/persona">Todas las personas</Link>
-                                    <Link to="/persona/new">Agregar una persona</Link>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="navbarLoginSignin">
-                        <ul>
-                            <li>
-                                <Link aria-current="page" to="./login.jsx"><i className="bx bxs-user-circle bx-tada"></i><span className="hide"> Iniciar Sesión</span></Link>
-                            </li>
-                            <li>
-                                <Link aria-current="page" to="/signup"><i className="bx bxs-user-account bx-tada"></i><span className="hide"> Registrarse</span></Link>
-                            </li>
-                        </ul>
-                    </div>
-            </nav>
-        </div>
-    )
+<div> 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/libro">My Books</a>   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/libro">Libros</a>
+        <a class="nav-link" href="/categoria">Categorias</a>
+        <a class="nav-link" href="/persona">Personas</a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+</div>
+
+)
 }
