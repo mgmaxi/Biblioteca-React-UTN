@@ -36,7 +36,13 @@ export default function CardPerson({
     <li class="list-group-item">{persona.email}</li>
     <li class="list-group-item">{persona.alias}</li>
   </ul>
+  <div class="btn-group" role="group" aria-label="Basic example" styles="margin-top: 5px;">
+  <button type="button" class="btn btn-info">Libros</button>
+  <button type="button" class="btn btn-warning">Modificar</button>
+  <button type="button" class="btn btn-danger">Eliminar</button>
 </div>
+</div>
+
  );
 }
  
