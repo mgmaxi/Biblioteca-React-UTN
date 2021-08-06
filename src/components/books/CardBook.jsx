@@ -58,19 +58,23 @@ export default function CardBook ({ libro }) {
     };
 
     return (
-            <div key={libro.id}>
-                <li className="listBooks">
-                    <h2 className="titleBook"> 
-                    <Link to={'/libro/view/' + libro.id}> {libro.nombre}</Link>
-                    </h2>
-                    <h2 className="subText">Prestado a: <span className="owner">{namePerson}</span></h2>
-                    <Error message={error} />
-                    <div className="btnGroup">
-                    <Book subTitle="Ver Libro" url={'/libro/view/' + libro.id} /><Borrow subTitle="Prestar" url={`/libro/borrow/${libro.id}/${libro.nombre}`} /><Edit url={`/libro/modify/${libro.id}/${libro.descripcion}`} /><Return onClick={() => handleDevolverLibro(libro.id)} /><Delete onClick={() => handleBorrarLibro(libro.id)} />
-                    </div>
-                    <Error message={errorReturn} /><Error message={errorDelete} /> 
-                </li>
-                <hr />
-            </div>
-    )
-}
+        <div class="card cardBook" styles="width: 3rem;">
+          <div class="card-header text-dark">
+            ID:&nbsp;{libro.id}
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item textBook">{libro.nombre}</li>
+            <li class="list-group-item">Prestado a:&nbsp;{namePerson}</li>
+            
+          </ul>
+          <div class="btn-group" role="group" aria-label="Basic example" styles="margin-top: 5px;">
+          <button type="button" class="btn btn-info">Ver Libro</button>
+          <button onClick type="button" class="btn btn-warning">Modificar</button>
+          <button onClick type="button" class="btn btn-success">Prestar</button>
+          <button onClick type="button" class="btn btn-primary">Devolver</button>
+          <button onClick type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+        </div>
+        
+         );
+        }

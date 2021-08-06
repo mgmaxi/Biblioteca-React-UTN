@@ -31,7 +31,7 @@ export default function CardCategory({
       ID:&nbsp;{categoria.ID}
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">{categoria.nombre}</li>
+      <li class="list-group-item textCategory">{categoria.nombre}</li>
     </ul>
     <div class="btn-group" role="group" aria-label="Basic example" styles="margin-top: 5px;">
     <button type="button" class="btn btn-info">Libros</button>

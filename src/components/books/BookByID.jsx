@@ -38,8 +38,10 @@ export default function BookByID () {
         <>
             <Nav />
             <div className="mainContainer">
+                <div className="boxContainer">
                 {bookArray}
                 <Error message={error} />
+            </div>
             </div>
             <Footer />
         </>

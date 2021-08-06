@@ -1,34 +1,35 @@
-import React from 'react';
-import {  useSelector } from 'react-redux';
-/* Components */
-import Nav from '../Nav';
-import Footer from '../Footer';
-import CardBook from './CardBook';
-import Logo from '../others/logo/logo';
-/* Styles */
-import '../styles/main.css';
+/** @format */
 
+import React from "react";
+import { useSelector } from "react-redux";
+/* Components */
+import Nav from "../Nav";
+import Footer from "../Footer";
+import CardBook from "./CardBook";
+import Logo from "../others/logo/logo";
+/* Styles */
+import "../styles/main.css";
 
 /* Services */
 
 export default function BookList() {
+  const listado = useSelector(
+    (state) => state.bookReducer.libros
+  );
 
-    const listado = useSelector((state) => state.bookReducer.libros);
+  const bookListArray = listado.map((libro) => (
+    <CardBook key={libro.id} libro={libro} />
+  ));
 
-    const bookListArray = listado.map((libro)=> ( <CardBook key={libro.id} libro={libro} /> ));
-
-    return (
-        <>
-            <Nav />
-            <div className="mainContainer">
-                <div className="bookContainer">
-                    <Logo title="LISTADO DE LIBROS" url="/libro" />
-                    <ul>
-                        {bookListArray}
-                    </ul>
-                </div>
-            </div>
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Nav />
+      <div className="mainContainer">
+        <div className="boxContainer">
+          {bookListArray}
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 }

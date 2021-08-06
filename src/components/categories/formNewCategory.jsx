@@ -77,33 +77,14 @@ function NewCategory(props) {
     <div>
       <Nav />
       <div className="mainContainer">
-        <form
-          className="formContainerCategory"
-          onSubmit={enviarFormulario}
-        >
-          <h1 className="formName">
-            Nueva categoria
-          </h1>
-          <label htmlFor="nombre">Nombre</label>
-          <input
-            onChange={handleChangeNombre}
-            name="nombre"
-            id="nombre"
-            type="text"
-            className="smallInputTextCategory"
-          />
-          <p className="error">{errorfront.nombre}</p>
-          <br />
-          <button
-            className="btn"
-            name="send"
-            disabled={errorfront.nombre}
-            type="submit"
-          >
-            Agregar
-          </button>
-        <Error message={error} />
-        </form>
+      <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre de la nueva categoria</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
       </div>
       <Footer />
     </div>
