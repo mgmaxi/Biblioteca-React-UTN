@@ -9,7 +9,7 @@ import Logo from '../others/logo/logo';
 import Error from '../others/error/Error';
 /* Styles */
 import '../styles/main.css'
-import '../styles/bookView.css'
+
 
 export default function PersonByID () {
 

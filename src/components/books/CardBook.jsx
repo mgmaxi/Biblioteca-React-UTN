@@ -10,7 +10,7 @@ import Error from '../others/error/Error';
 import Book from '../others/btn/btnBook';
 import Borrow from '../others/btn/btnBorrow';
 /* Styles */
-import '../styles/cardBook.css';
+
 /* Services */
 import { getPersonByID } from '../../services/allServices.jsx';
 

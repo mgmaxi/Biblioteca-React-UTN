@@ -5,7 +5,7 @@ import axios from "axios";
 import Nav from "../Nav";
 import Footer from "../Footer";
 import Error from '../others/error/Error';
-import "../styles/newFormBook.css";
+
 import "../styles/main.css";
 
 function NewBook(props) {

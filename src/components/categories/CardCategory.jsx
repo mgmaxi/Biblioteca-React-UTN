@@ -7,7 +7,7 @@ import Delete from '../others/btn/btnDelete';
 import Book from '../others/btn/btnBook';
 import Error from '../others/error/Error';
 /* Styles */
-import "../styles/cardCategory.css";
+
 
 export default function CardCategory({
   categoria,
@@ -26,26 +26,19 @@ export default function CardCategory({
 };
 
   return (
-    <div className="container">
-      <div
-        key={categoria.id}
-        className="cardCategory"
-      >
-        <div>
-          <h2 className="nameCategory">
-            {categoria.nombre}
-          </h2>
-          <h2 className="categoryID">
-            ID {categoria.ID}
-          </h2>
-
-          <div className="btnGroupCategory">
-                      <Book subTitle="Libros en esta Cat" url={'/categoria/view/' + categoria.ID} /><Edit url={`/categoria/modify/${categoria.ID}/${categoria.nombre}`} /> <Delete onClick={() => handleBorrarCategoria(categoria.ID)} />
-          </div>
-          <Error message={error} />
-          </div>
-        </div>
-      </div>
+    <div class="card cardCategory" styles="width: 3rem;">
+    <div class="card-header text-dark">
+      ID:&nbsp;{categoria.ID}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{categoria.nombre}</li>
+    </ul>
+    <div class="btn-group" role="group" aria-label="Basic example" styles="margin-top: 5px;">
+    <button type="button" class="btn btn-info">Libros</button>
+    <button onClick type="button" class="btn btn-warning">Modificar</button>
+    <button onClick type="button" class="btn btn-danger">Eliminar</button>
+  </div>
+  </div>
     
   );
 }

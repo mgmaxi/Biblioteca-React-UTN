@@ -2,7 +2,7 @@ import React from "react";
 import {  useSelector } from 'react-redux';
 /* Styles */
 import "../styles/main.css";
-import "../styles/CategoryList.css";
+
 /* Components */
 import CardCategory from "./CardCategory"
 import Nav from "../Nav";

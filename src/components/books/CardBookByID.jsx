@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Logo from '../others/logo/logo';
 import Error from '../others/error/Error';
 /* Styles */
-import '../styles/cardBook.css';
+
 /* Services */
 import { getCategoryByID, getPersonByID } from '../../services/allServices.jsx';
 

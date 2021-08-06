@@ -2,7 +2,7 @@ import React from 'react';
 import {  useSelector } from 'react-redux';
 /* Styles */
 import "../styles/main.css";
-import "../styles/PersonList.css";
+
 /* Components */
 import CardPerson from "./CardPerson";
 import Nav from "../Nav";

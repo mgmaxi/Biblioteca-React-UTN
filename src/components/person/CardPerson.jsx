@@ -27,7 +27,7 @@ export default function CardPerson({
 };
 
   return (
-<div class="card" styles="width: 3rem;">
+<div class="card cardPerson" styles="width: 3rem;">
   <div class="card-header text-dark">
     ID:&nbsp;{persona.ID}
   </div>
@@ -38,8 +38,8 @@ export default function CardPerson({
   </ul>
   <div class="btn-group" role="group" aria-label="Basic example" styles="margin-top: 5px;">
   <button type="button" class="btn btn-info">Libros</button>
-  <button type="button" class="btn btn-warning">Modificar</button>
-  <button type="button" class="btn btn-danger">Eliminar</button>
+  <button onClick= {`/persona/modify/${persona.ID}/${persona.nombre}/${persona.apellido}/${persona.email}/${persona.alias}`} type="button" class="btn btn-warning">Modificar</button>
+  <button onClick={() => handleBorrarPersona(persona.ID)} type="button" class="btn btn-danger">Eliminar</button>
 </div>
 </div>
 

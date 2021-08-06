@@ -8,7 +8,7 @@ import Nav from "../Nav";
 import Footer from "../Footer";
 import Error from '../others/error/Error';
 /* Styles */
-import "../styles/newFormBook.css";
+
 import "../styles/main.css";
 
 function BorrowBook(props) {

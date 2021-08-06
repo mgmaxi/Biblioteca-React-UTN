@@ -7,7 +7,7 @@ import CardBookByID from './CardBookByID'
 import Error from '../others/error/Error';
 /* Styles */
 import '../styles/main.css'
-import '../styles/bookView.css'
+
 /* Services */
 import { getBooksByID } from '../../services/allServices.jsx';
 

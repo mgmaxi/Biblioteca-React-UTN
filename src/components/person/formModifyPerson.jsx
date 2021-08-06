@@ -7,7 +7,7 @@ import Nav from "../Nav";
 import Footer from "../Footer";
 import Error from '../others/error/Error';
 /* Styles */
-import "../styles/newFormCategory.css";
+
 import "../styles/main.css";
 
 function ModifyPerson(props) {
