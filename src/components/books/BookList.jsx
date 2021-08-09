@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import Nav from "../Nav";
 import Footer from "../Footer";
 import CardBook from "./CardBook";
-import Logo from "../others/logo/logo";
+
 /* Styles */
 import "../styles/main.css";
 
